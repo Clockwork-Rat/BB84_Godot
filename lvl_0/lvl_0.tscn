@@ -1,0 +1,67 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://lvl_0/scene_assets/desk_mat.tres" type="Material" id=1]
+[ext_resource path="res://lvl_0/ui_lvl_0.tscn" type="PackedScene" id=2]
+
+[sub_resource type="CubeMesh" id=1]
+
+[sub_resource type="CubeMesh" id=2]
+
+[sub_resource type="CubeMesh" id=3]
+
+[sub_resource type="CubeMesh" id=4]
+
+[node name="Spatial" type="Spatial"]
+
+[node name="main_camera" type="Camera" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.979624, 0.200839, 0, -0.200839, 0.979624, 0, 3.5566, 1.67966 )
+
+[node name="OmniLight" type="OmniLight" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.930113, 1.6844, -3.22408 )
+shadow_enabled = true
+
+[node name="desk" type="Spatial" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.624744, 0 )
+
+[node name="desktop" type="MeshInstance" parent="desk"]
+transform = Transform( 1.433, 0, 0, 0, 0.064, 0, 0, 0, 0.63, 0, 1.86316, -3.22511 )
+mesh = SubResource( 1 )
+skeleton = NodePath("../..")
+material/0 = ExtResource( 1 )
+
+[node name="desk_leg_1" type="MeshInstance" parent="desk/desktop"]
+transform = Transform( 0.031, 0, 0, 0, 8.02801, 0, 0, 0, 0.0610001, -0.875412, -9.18991, 0.832267 )
+mesh = SubResource( 2 )
+skeleton = NodePath("../..")
+material/0 = ExtResource( 1 )
+
+[node name="desk_leg_2" type="MeshInstance" parent="desk/desktop"]
+transform = Transform( 0.031, 0, 0, 0, 8.02801, 0, 0, 0, 0.0610001, 0.875, -9.19, 0.832 )
+mesh = SubResource( 2 )
+skeleton = NodePath("../..")
+material/0 = ExtResource( 1 )
+
+[node name="desk_leg_3" type="MeshInstance" parent="desk/desktop"]
+transform = Transform( 0.031, 0, 0, 0, 8.02801, 0, 0, 0, 0.0610001, -0.875, -9.19, -0.832 )
+mesh = SubResource( 2 )
+skeleton = NodePath("../..")
+material/0 = ExtResource( 1 )
+
+[node name="desk_leg_4" type="MeshInstance" parent="desk/desktop"]
+transform = Transform( 0.031, 0, 0, 0, 8.02801, 0, 0, 0, 0.0610001, 0.875, -9.19, -0.832 )
+mesh = SubResource( 2 )
+skeleton = NodePath("../..")
+material/0 = ExtResource( 1 )
+
+[node name="house" type="Spatial" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.69846 )
+
+[node name="floor" type="MeshInstance" parent="house"]
+transform = Transform( 9.513, 0, 0, 0, 0.153, 0, 0, 0, 4.11, 0, 0.00491637, -2.2545 )
+mesh = SubResource( 3 )
+
+[node name="back_wall" type="MeshInstance" parent="house"]
+transform = Transform( 9.369, 0, 0, 0, 3.249, 0, 0, 0, 0.305, 0, 3.0224, -6.07053 )
+mesh = SubResource( 4 )
+
+[node name="Control" parent="." instance=ExtResource( 2 )]

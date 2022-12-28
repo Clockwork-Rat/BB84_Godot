@@ -1,0 +1,62 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://lvl_0/scene_assets/ui_lvl_0.gd" type="Script" id=1]
+
+[node name="Control" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+
+[node name="Title" type="Label" parent="."]
+anchor_left = 0.429
+anchor_top = 0.128
+anchor_right = 0.634
+anchor_bottom = 0.153
+margin_left = -0.296021
+margin_top = 1.2
+margin_right = -0.216003
+margin_bottom = 0.199997
+text = "Level Zero: An Overview of BB84"
+
+[node name="prompt_panel" type="Panel" parent="."]
+anchor_left = 0.275
+anchor_top = 0.833
+anchor_right = 0.783
+anchor_bottom = 0.983
+margin_left = 0.399994
+margin_top = 0.199951
+margin_right = 0.207947
+margin_bottom = 0.199951
+
+[node name="main_text" type="RichTextLabel" parent="prompt_panel"]
+anchor_left = 0.065
+anchor_top = 0.144
+anchor_right = 0.938
+anchor_bottom = 0.733
+margin_left = 0.199997
+margin_top = 0.039999
+margin_right = 0.23999
+margin_bottom = 0.0299988
+text = "In this Level, you will be learning how sending informaiton between two people works in the BB84 encryption protocol. During part one, try to figure out the pattern of the result."
+
+[node name="next_button" type="Button" parent="prompt_panel"]
+anchor_left = 0.9
+anchor_top = 0.678
+anchor_right = 0.981
+anchor_bottom = 0.9
+margin_left = -3.05176e-05
+margin_top = -0.0200043
+margin_right = -0.120026
+text = "Next"
+
+[node name="familiarize_panel" type="Panel" parent="."]
+anchor_left = 0.299
+anchor_top = 0.417
+anchor_right = 0.764
+anchor_bottom = 0.59
+margin_left = -0.176025
+margin_top = -0.200012
+margin_right = -0.33606
+margin_bottom = -3.05176e-05
+
+[connection signal="pressed" from="prompt_panel/next_button" to="." method="_on_next_button_pressed"]
