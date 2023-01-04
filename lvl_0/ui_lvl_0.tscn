@@ -1,11 +1,9 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://lvl_0/scene_assets/ui_lvl_0.gd" type="Script" id=1]
 [ext_resource path="res://lvl_0/scene_assets/ui_blue/ui_blue_theme.tres" type="Theme" id=2]
 [ext_resource path="res://lvl_0/scene_assets/ui_green/ui_green_theme.tres" type="Theme" id=3]
 [ext_resource path="res://lvl_0/familiarize_panel.gd" type="Script" id=4]
-
-[sub_resource type="ImageTexture" id=1]
 
 [node name="Control" type="Control"]
 anchor_right = 1.0
@@ -140,11 +138,6 @@ margin_right = -0.184021
 margin_bottom = -0.00200653
 text = "Reset"
 
-[node name="result" type="Sprite" parent="familiarize_panel"]
-position = Vector2( 449, 33 )
-scale = Vector2( 50, 49 )
-texture = SubResource( 1 )
-
 [node name="send_lbl" type="Label" parent="familiarize_panel"]
 anchor_left = 0.248
 anchor_top = 0.076
@@ -166,6 +159,18 @@ margin_top = 0.027
 margin_right = -0.22403
 margin_bottom = -0.0149994
 text = "Receiver"
+
+[node name="result" type="Label" parent="familiarize_panel"]
+anchor_left = 0.887
+anchor_top = 0.294
+anchor_right = 0.973
+anchor_bottom = 0.681
+margin_left = -0.143951
+margin_top = 0.0140076
+margin_right = -0.175964
+margin_bottom = -0.0389862
+align = 1
+valign = 1
 
 [connection signal="pressed" from="prompt_panel/next_button" to="." method="_on_next_button_pressed"]
 [connection signal="pressed" from="familiarize_panel/send_blue" to="familiarize_panel" method="_on_send_blue_pressed"]
