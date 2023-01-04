@@ -1,6 +1,11 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://lvl_0/scene_assets/ui_lvl_0.gd" type="Script" id=1]
+[ext_resource path="res://lvl_0/scene_assets/ui_blue/ui_blue_theme.tres" type="Theme" id=2]
+[ext_resource path="res://lvl_0/scene_assets/ui_green/ui_green_theme.tres" type="Theme" id=3]
+[ext_resource path="res://lvl_0/familiarize_panel.gd" type="Script" id=4]
+
+[sub_resource type="ImageTexture" id=1]
 
 [node name="Control" type="Control"]
 anchor_right = 1.0
@@ -12,31 +17,31 @@ anchor_left = 0.429
 anchor_top = 0.128
 anchor_right = 0.634
 anchor_bottom = 0.153
-margin_left = -0.296021
+margin_left = -32.296
 margin_top = 1.2
-margin_right = -0.216003
-margin_bottom = 0.199997
+margin_right = -32.216
+margin_bottom = 0.200005
 text = "Level Zero: An Overview of BB84"
 
 [node name="prompt_panel" type="Panel" parent="."]
-anchor_left = 0.275
-anchor_top = 0.833
-anchor_right = 0.783
-anchor_bottom = 0.983
-margin_left = 0.399994
-margin_top = 0.199951
-margin_right = 0.207947
+anchor_left = 0.246
+anchor_top = 0.825
+anchor_right = 0.754
+anchor_bottom = 0.993
+margin_left = 0.095993
+margin_top = -3.05176e-05
+margin_right = -0.0960083
 margin_bottom = 0.199951
 
 [node name="main_text" type="RichTextLabel" parent="prompt_panel"]
 anchor_left = 0.065
-anchor_top = 0.144
+anchor_top = 0.069
 anchor_right = 0.938
-anchor_bottom = 0.733
-margin_left = 0.199997
-margin_top = 0.039999
+anchor_bottom = 0.871
+margin_left = 0.200012
+margin_top = 0.0309992
 margin_right = 0.23999
-margin_bottom = 0.0299988
+margin_bottom = 0.0289917
 text = "In this Level, you will be learning how sending informaiton between two people works in the BB84 encryption protocol. During part one, try to figure out the pattern of the result."
 
 [node name="next_button" type="Button" parent="prompt_panel"]
@@ -50,13 +55,123 @@ margin_right = -0.120026
 text = "Next"
 
 [node name="familiarize_panel" type="Panel" parent="."]
-anchor_left = 0.299
-anchor_top = 0.417
-anchor_right = 0.764
-anchor_bottom = 0.59
-margin_left = -0.176025
-margin_top = -0.200012
-margin_right = -0.33606
-margin_bottom = -3.05176e-05
+anchor_left = 0.25
+anchor_top = 0.275
+anchor_right = 0.75
+anchor_bottom = 0.473
+margin_right = -6.10352e-05
+margin_bottom = 0.199982
+script = ExtResource( 4 )
+
+[node name="send_blue" type="Button" parent="familiarize_panel"]
+anchor_left = 0.053
+anchor_top = 0.231
+anchor_right = 0.145
+anchor_bottom = 0.663
+margin_left = -0.136002
+margin_top = 3.511
+margin_right = -0.240005
+margin_bottom = 3.583
+theme = ExtResource( 2 )
+
+[node name="send_green" type="Button" parent="familiarize_panel"]
+anchor_left = 0.178
+anchor_top = 0.231
+anchor_right = 0.27
+anchor_bottom = 0.673
+margin_left = -0.136002
+margin_top = 4.511
+margin_right = -0.240005
+margin_bottom = 3.543
+theme = ExtResource( 3 )
+
+[node name="send_zero" type="Button" parent="familiarize_panel"]
+anchor_left = 0.316
+anchor_top = 0.231
+anchor_right = 0.408
+anchor_bottom = 0.663
+margin_left = 0.207993
+margin_top = 3.511
+margin_right = 0.103989
+margin_bottom = 3.583
+text = "0"
+
+[node name="send_one" type="Button" parent="familiarize_panel"]
+anchor_left = 0.441
+anchor_top = 0.231
+anchor_right = 0.533
+anchor_bottom = 0.673
+margin_left = 0.207993
+margin_top = 4.511
+margin_right = 0.103973
+margin_bottom = 3.543
+text = "1"
+
+[node name="rec_blue" type="Button" parent="familiarize_panel"]
+anchor_left = 0.627
+anchor_top = 0.231
+anchor_right = 0.719
+anchor_bottom = 0.663
+margin_left = -0.0240173
+margin_top = 3.511
+margin_right = -0.128021
+margin_bottom = 3.583
+theme = ExtResource( 2 )
+
+[node name="rec_green" type="Button" parent="familiarize_panel"]
+anchor_left = 0.752
+anchor_top = 0.231
+anchor_right = 0.844
+anchor_bottom = 0.673
+margin_left = -0.0240173
+margin_top = 4.511
+margin_right = -0.128021
+margin_bottom = 3.543
+theme = ExtResource( 3 )
+
+[node name="reset_btn" type="Button" parent="familiarize_panel"]
+anchor_left = 0.434
+anchor_top = 0.79
+anchor_right = 0.557
+anchor_bottom = 0.958
+margin_left = -0.208008
+margin_top = -0.0100021
+margin_right = -0.184021
+margin_bottom = -0.00200653
+text = "Reset"
+
+[node name="result" type="Sprite" parent="familiarize_panel"]
+position = Vector2( 449, 33 )
+scale = Vector2( 50, 49 )
+texture = SubResource( 1 )
+
+[node name="send_lbl" type="Label" parent="familiarize_panel"]
+anchor_left = 0.248
+anchor_top = 0.076
+anchor_right = 0.334
+anchor_bottom = 0.193
+margin_left = 0.0239944
+margin_top = -0.0440006
+margin_right = -0.00801086
+margin_bottom = 0.032999
+text = "Sender"
+
+[node name="rec_lbl" type="Label" parent="familiarize_panel"]
+anchor_left = 0.744
+anchor_top = 0.067
+anchor_right = 0.852
+anchor_bottom = 0.185
+margin_left = 0.071991
+margin_top = 0.027
+margin_right = -0.22403
+margin_bottom = -0.0149994
+text = "Receiver"
 
 [connection signal="pressed" from="prompt_panel/next_button" to="." method="_on_next_button_pressed"]
+[connection signal="pressed" from="familiarize_panel/send_blue" to="familiarize_panel" method="_on_send_blue_pressed"]
+[connection signal="pressed" from="familiarize_panel/send_green" to="familiarize_panel" method="_on_send_green_pressed"]
+[connection signal="pressed" from="familiarize_panel/send_zero" to="familiarize_panel" method="_on_send_zero_pressed"]
+[connection signal="pressed" from="familiarize_panel/send_one" to="familiarize_panel" method="_on_send_one_pressed"]
+[connection signal="pressed" from="familiarize_panel/rec_blue" to="familiarize_panel" method="_on_rec_blue_pressed"]
+[connection signal="pressed" from="familiarize_panel/rec_green" to="familiarize_panel" method="_on_rec_green_pressed"]
+[connection signal="pressed" from="familiarize_panel/reset_btn" to="familiarize_panel" method="_on_reset_btn_pressed"]

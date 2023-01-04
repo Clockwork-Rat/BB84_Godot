@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://lvl_0/scene_assets/desk_mat.tres" type="Material" id=1]
 [ext_resource path="res://lvl_0/ui_lvl_0.tscn" type="PackedScene" id=2]
+[ext_resource path="res://lvl_0/scene_assets/wall_material.tres" type="Material" id=3]
 
 [sub_resource type="CubeMesh" id=1]
 
@@ -14,7 +15,7 @@
 [node name="Spatial" type="Spatial"]
 
 [node name="main_camera" type="Camera" parent="."]
-transform = Transform( 1, 0, 0, 0, 0.979624, 0.200839, 0, -0.200839, 0.979624, 0, 3.5566, 1.67966 )
+transform = Transform( 1, 0, 0, 0, 0.277364, 0.960765, 0, -0.960765, 0.277364, 0, 3.11921, -2.40428 )
 
 [node name="OmniLight" type="OmniLight" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.930113, 1.6844, -3.22408 )
@@ -63,5 +64,6 @@ mesh = SubResource( 3 )
 [node name="back_wall" type="MeshInstance" parent="house"]
 transform = Transform( 9.369, 0, 0, 0, 3.249, 0, 0, 0, 0.305, 0, 3.0224, -6.07053 )
 mesh = SubResource( 4 )
+material/0 = ExtResource( 3 )
 
 [node name="Control" parent="." instance=ExtResource( 2 )]
