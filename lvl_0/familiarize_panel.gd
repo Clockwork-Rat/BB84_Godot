@@ -13,7 +13,6 @@ enum COLOR_STATE {
 	GREEN,
 	NONE
 }
-
 enum NUMBER_STATE {
 	ZERO,
 	ONE,
@@ -26,15 +25,14 @@ var send_number_state = NUMBER_STATE.NONE
 var send_number_selected = false
 var rec_color_state = COLOR_STATE.NONE
 var rec_color_selected = false
-var toggle = false
 
 func _input(_event):
 	if send_color_selected and send_number_selected and rec_color_selected:
-		toggle = true
+
 		send_color_selected = false
 		send_number_selected = false
 		rec_color_selected = false
-	if toggle:
+
 		randomize()
 		if send_color_state == rec_color_state:
 			if send_number_state == NUMBER_STATE.ZERO:
@@ -45,7 +43,6 @@ func _input(_event):
 			var temp = rand_range(0, 2)
 			temp = floor(temp)
 			result.text = String(temp)
-		toggle = false
 
 func _on_send_blue_pressed():
 	send_blue.disabled = true
@@ -111,11 +108,9 @@ func _on_rec_blue_pressed():
 	rec_color_selected = true
 	rec_green.hide()
 
-
 func _on_rec_green_pressed():
 	rec_blue.disabled = true
 	rec_green.disabled = true
 	rec_color_state = COLOR_STATE.GREEN
 	rec_color_selected = true
 	rec_blue.hide()
-

@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://lvl_0/scene_assets/ui_lvl_0.gd" type="Script" id=1]
 [ext_resource path="res://lvl_0/scene_assets/ui_blue/ui_blue_theme.tres" type="Theme" id=2]
 [ext_resource path="res://lvl_0/scene_assets/ui_green/ui_green_theme.tres" type="Theme" id=3]
 [ext_resource path="res://lvl_0/familiarize_panel.gd" type="Script" id=4]
+[ext_resource path="res://lvl_0/lvl_0_quiz_panel.gd" type="Script" id=5]
 
 [node name="Control" type="Control"]
 anchor_right = 1.0
@@ -53,6 +54,7 @@ margin_right = -0.120026
 text = "Next"
 
 [node name="familiarize_panel" type="Panel" parent="."]
+visible = false
 anchor_left = 0.25
 anchor_top = 0.275
 anchor_right = 0.75
@@ -172,6 +174,48 @@ margin_bottom = -0.0389862
 align = 1
 valign = 1
 
+[node name="quiz_panel" type="Panel" parent="."]
+anchor_left = 0.25
+anchor_top = 0.275
+anchor_right = 0.75
+anchor_bottom = 0.473
+margin_right = -6.10352e-05
+margin_bottom = 0.199982
+script = ExtResource( 5 )
+
+[node name="zero_btn" type="Button" parent="quiz_panel"]
+anchor_left = 0.574
+anchor_top = 0.277
+anchor_right = 0.676
+anchor_bottom = 0.706
+margin_left = 0.112
+margin_top = 0.0369987
+margin_right = -0.11203
+margin_bottom = -0.0139999
+text = "0"
+
+[node name="one_btn" type="Button" parent="quiz_panel"]
+anchor_left = 0.713
+anchor_top = 0.277
+anchor_right = 0.814
+anchor_bottom = 0.706
+margin_left = -0.0560303
+margin_top = 0.0369987
+margin_right = 0.231995
+margin_bottom = -0.0139999
+text = "1"
+
+[node name="question_btn" type="Button" parent="quiz_panel"]
+anchor_left = 0.85
+anchor_top = 0.277
+anchor_right = 0.951
+anchor_bottom = 0.706
+margin_left = -0.200012
+margin_top = 0.0369987
+margin_right = 0.0879822
+margin_bottom = -0.0139999
+text = "0/1"
+
 [connection signal="pressed" from="prompt_panel/next_button" to="." method="_on_next_button_pressed"]
 [connection signal="pressed" from="familiarize_panel/send_blue" to="familiarize_panel" method="_on_send_blue_pressed"]
 [connection signal="pressed" from="familiarize_panel/send_green" to="familiarize_panel" method="_on_send_green_pressed"]
@@ -180,3 +224,6 @@ valign = 1
 [connection signal="pressed" from="familiarize_panel/rec_blue" to="familiarize_panel" method="_on_rec_blue_pressed"]
 [connection signal="pressed" from="familiarize_panel/rec_green" to="familiarize_panel" method="_on_rec_green_pressed"]
 [connection signal="pressed" from="familiarize_panel/reset_btn" to="familiarize_panel" method="_on_reset_btn_pressed"]
+[connection signal="pressed" from="quiz_panel/zero_btn" to="quiz_panel" method="_on_zero_btn_pressed"]
+[connection signal="pressed" from="quiz_panel/one_btn" to="quiz_panel" method="_on_one_btn_pressed"]
+[connection signal="pressed" from="quiz_panel/question_btn" to="quiz_panel" method="_on_question_btn_pressed"]
