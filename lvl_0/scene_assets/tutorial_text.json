@@ -1,5 +1,6 @@
 {
     "0" : "In this Level, you will be learning how sending informaiton between two people works in the BB84 encryption protocol. During part one, try to figure out the pattern of the result.",
     "1" : "Start by messing with these buttons. You are able to chose a color and a number for the 'sender' portion, and a color for the 'receiver' portion. The final box will produce the result. Once you think you've got the pattern, go ahead and hit the next button!",
-    "2" : "Try this quiz! Your goal is to answer five questions correctly in a row. Keep in mind that all answers can be correct!"
+    "2" : "Try this quiz! Your goal is to answer five questions correctly in a row. Keep in mind that all answers can be correct!",
+    "3" : "Congratulations! You seem like you're ready to tackle what's ahead! If you don't feel that's true, feel free to replay this level, it will still be available in the main menu."
 }

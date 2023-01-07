@@ -224,6 +224,7 @@ text = "0/1"
 [connection signal="pressed" from="familiarize_panel/rec_blue" to="familiarize_panel" method="_on_rec_blue_pressed"]
 [connection signal="pressed" from="familiarize_panel/rec_green" to="familiarize_panel" method="_on_rec_green_pressed"]
 [connection signal="pressed" from="familiarize_panel/reset_btn" to="familiarize_panel" method="_on_reset_btn_pressed"]
+[connection signal="enough_correct" from="quiz_panel" to="." method="_on_quiz_panel_enough_correct"]
 [connection signal="pressed" from="quiz_panel/zero_btn" to="quiz_panel" method="_on_zero_btn_pressed"]
 [connection signal="pressed" from="quiz_panel/one_btn" to="quiz_panel" method="_on_one_btn_pressed"]
 [connection signal="pressed" from="quiz_panel/question_btn" to="quiz_panel" method="_on_question_btn_pressed"]

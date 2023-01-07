@@ -49,7 +49,7 @@ margin_left = 0.175995
 margin_top = -0.200012
 margin_right = -0.288025
 margin_bottom = -0.200012
-text = "Level 1"
+text = "Level 2"
 
 [node name="btn_lvl_3" type="Button" parent="."]
 anchor_left = 0.491
@@ -60,7 +60,7 @@ margin_left = 0.215973
 margin_top = -0.200012
 margin_right = -0.248047
 margin_bottom = -0.200012
-text = "Level 1"
+text = "Level 3"
 
 [connection signal="pressed" from="btn_lvl_0" to="." method="_on_btn_lvl_0_pressed"]
 [connection signal="pressed" from="btn_lvl_1" to="." method="_on_btn_lvl_1_pressed"]

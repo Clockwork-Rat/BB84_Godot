@@ -35,7 +35,13 @@ func _on_next_button_pressed():
 		prompt_text.text = json.result["2"]
 		first_panel.hide()
 		quiz_panel.show()
-	elif current_state == panel_state.QUIZ_PANEL_STATE:
-		current_state = panel_state.END_STATE
+	elif current_state == panel_state.END_STATE:
+		get_tree().change_scene("res://main_menu/main_menu.tscn")
 	else:
 		pass
+
+
+func _on_quiz_panel_enough_correct():
+	prompt_text.text = json.result["3"]
+	quiz_panel.hide()
+	current_state = panel_state.END_STATE
