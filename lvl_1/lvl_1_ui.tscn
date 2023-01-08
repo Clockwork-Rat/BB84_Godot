@@ -1,6 +1,8 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://lvl_1/lvl_1_ui.gd" type="Script" id=1]
+[ext_resource path="res://lvl_0/scene_assets/ui_blue/ui_blue_theme.tres" type="Theme" id=2]
+[ext_resource path="res://lvl_0/scene_assets/ui_green/ui_green_theme.tres" type="Theme" id=3]
 
 [node name="Control" type="Control"]
 anchor_right = 1.0
@@ -44,4 +46,59 @@ margin_right = -0.0900269
 margin_bottom = 0.0199966
 text = "Next"
 
+[node name="select_panel" type="Panel" parent="."]
+anchor_left = 0.318
+anchor_top = 0.337
+anchor_right = 0.683
+anchor_bottom = 0.483
+margin_left = 0.367981
+margin_top = -0.200012
+margin_right = -0.392029
+margin_bottom = 0.199982
+
+[node name="select_label" type="Label" parent="select_panel"]
+anchor_right = 1.0
+anchor_bottom = 0.375
+margin_bottom = -6.0
+text = "Select Your Colors!"
+align = 1
+valign = 1
+
+[node name="blue_button" type="Button" parent="select_panel"]
+anchor_left = 0.271
+anchor_top = 0.284
+anchor_right = 0.413
+anchor_bottom = 0.864
+margin_left = -0.0830078
+margin_top = 0.00799942
+margin_right = -0.0490112
+margin_bottom = -0.0320053
+theme = ExtResource( 2 )
+
+[node name="green_button" type="Button" parent="select_panel"]
+anchor_left = 0.571
+anchor_top = 0.284
+anchor_right = 0.713
+anchor_bottom = 0.864
+margin_left = 0.016983
+margin_top = 0.00799942
+margin_right = 0.0509644
+margin_bottom = -0.0320053
+theme = ExtResource( 3 )
+
+[node name="select_number" type="Label" parent="select_panel"]
+anchor_left = 0.807
+anchor_top = 0.386
+anchor_right = 0.898
+anchor_bottom = 0.761
+margin_left = -0.0110168
+margin_top = 0.0319977
+margin_right = 0.04599
+margin_bottom = 0.0319977
+text = "0"
+align = 1
+valign = 1
+
 [connection signal="pressed" from="prompt_panel/next_btn" to="." method="_on_next_btn_pressed"]
+[connection signal="pressed" from="select_panel/blue_button" to="." method="_on_blue_button_pressed"]
+[connection signal="pressed" from="select_panel/green_button" to="." method="_on_green_button_pressed"]
