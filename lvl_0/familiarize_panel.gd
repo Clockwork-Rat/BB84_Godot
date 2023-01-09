@@ -8,6 +8,8 @@ onready var rec_blue = $rec_blue
 onready var rec_green = $rec_green
 onready var result = $result
 
+onready var notebook_panel_text = $"./../notebook_panel/notebook_text"
+
 enum COLOR_STATE {
 	BLUE,
 	GREEN,
@@ -32,17 +34,42 @@ func _input(_event):
 		send_color_selected = false
 		send_number_selected = false
 		rec_color_selected = false
+		
+		var temp = 0
+		var run_string = ""
+		
+		if send_color_state == COLOR_STATE.BLUE:
+			run_string += "blue "
+		else:
+			run_string += "green "
+			
+		if send_number_state == NUMBER_STATE.ZERO:
+			run_string += "0 "
+		else:
+			run_string += "1 "
+			
+		if rec_color_state == COLOR_STATE.BLUE:
+			run_string += "blue "
+		else:
+			run_string += "green "
+			
 
 		randomize()
 		if send_color_state == rec_color_state:
 			if send_number_state == NUMBER_STATE.ZERO:
 				result.text = "0"
+				run_string += "0 "
 			else:
 				result.text = "1"
+				run_string += "1 "
 		else:
-			var temp = rand_range(0, 2)
+			temp = rand_range(0, 2)
 			temp = floor(temp)
 			result.text = String(temp)
+			run_string += String(temp)
+			
+		run_string += "\n"
+		notebook_panel_text.text += run_string
 
 func _on_send_blue_pressed():
 	send_blue.disabled = true

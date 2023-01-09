@@ -4,17 +4,41 @@ extends Control
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
+onready var lvl_0_btn = $btn_lvl_0
+onready var lvl_1_btn = $btn_lvl_1
+onready var lvl_2_btn = $btn_lvl_2
+onready var lvl_3_btn = $btn_lvl_3
+
+var json_file = "res://persist.json"
+var json : JSONParseResult
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	var file = File.new()
+	file.open(json_file)
+	json = JSON.parse(file.get_as_text())
+	file.close()
 
+	var level = int(json.result["level"])
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
-
+	if level >= 5:
+		pass #do nothing because all levels are unlocked
+	elif level >= 4:
+		pass #do nothing as level 4 is not yet implemented
+	elif level >= 3:
+		pass # do nothing, as the current highest level is unlocked
+	elif level >= 2:
+		lvl_3_btn.disabled = true
+	elif level >= 1:
+		lvl_3_btn.disabled = true
+		lvl_2_btn.disabled = true
+	elif level >= 0:
+		lvl_1_btn.disabled = true
+		lvl_2_btn.disabled = true
+		lvl_3_btn.disabled = true
+	else:
+		pass #throw an error maybe
 
 func _on_btn_lvl_0_pressed():
 	get_tree().change_scene("res://lvl_0/lvl_0.tscn")

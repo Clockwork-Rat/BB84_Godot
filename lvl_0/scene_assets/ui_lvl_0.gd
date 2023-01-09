@@ -4,9 +4,12 @@ onready var nxt_btn = $"prompt_panel/next_button"
 onready var first_panel = $familiarize_panel
 onready var quiz_panel = $quiz_panel
 onready var prompt_text = $"prompt_panel/main_text"
+onready var notebook_panel = $notebook_panel
 
 var filepath = "res://lvl_0/scene_assets/tutorial_text.json"
 var json : JSONParseResult
+
+var nb_panel_active = false
 
 enum panel_state {
 	INTRO_STATE,
@@ -24,6 +27,7 @@ func _ready():
 	first_panel.hide()
 	quiz_panel.hide()
 	prompt_text.text = json.result["0"]
+	notebook_panel.hide()
 
 func _on_next_button_pressed():
 	if current_state == panel_state.INTRO_STATE:
@@ -45,3 +49,12 @@ func _on_quiz_panel_enough_correct():
 	prompt_text.text = json.result["3"]
 	quiz_panel.hide()
 	current_state = panel_state.END_STATE
+
+
+func _on_notebook_btn_pressed():
+	if nb_panel_active:
+		notebook_panel.hide()
+		nb_panel_active = false
+	else:
+		notebook_panel.show()
+		nb_panel_active = true
