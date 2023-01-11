@@ -1,4 +1,11 @@
 {
     "0" : "Have you been wondering what the equipment on the table is? This is a real example of BB84 in action, this level will show you how it works.",
-    "1" : ""
+    "1" : "This is a laser. It sends out a small beam. This beam has no information, it's not the color or the number, this beam is just the medium that carries the message.",
+    "2" : "This is a polarizer. This is where the real information is added.",
+    "3" : "The color is the direction that the polarizer is oriented. If the polarizer is straight up and down, or side to side, it is one color, and if the polarizer is oriented diagonally, it is the other.",
+    "4" : "You must have figured out that if a number is sent in one color, it won't necessarily be the same if it was sent in the other. Let's see how that works",
+    "5" : "Let's say that a \"blue one\" is when the polarizer is straight up and down, like this: ",
+    "6" : "The light is now moving straight up and down, and when that beam reaches a \"green\" receiving polarizer, it has a 50/50 chance of entering",
+    "7" : "Let's see if you are able to opperate this equipment. We'll do the same thing as last time but this time with the equipment",
+    "8" : "You'll be the sender this time, and you'll see your control buttons on the right side of the screen"
 }
