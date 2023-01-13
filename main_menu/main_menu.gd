@@ -16,7 +16,7 @@ var json : JSONParseResult
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	var file = File.new()
-	file.open(json_file)
+	file.open(json_file, File.READ)
 	json = JSON.parse(file.get_as_text())
 	file.close()
 

@@ -40,7 +40,10 @@ func _on_next_button_pressed():
 		first_panel.hide()
 		quiz_panel.show()
 	elif current_state == panel_state.END_STATE:
-		get_tree().change_scene("res://main_menu/main_menu.tscn")
+		var persist_file = File.new()
+		persist_file.open("res://persist.json", File.READ)
+		#figure out how to rewrite part of a json file
+		var _dmp = get_tree().change_scene("res://main_menu/main_menu.tscn")
 	else:
 		pass
 
