@@ -1,10 +1,13 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://lvl_0/scene_assets/ui_lvl_0.gd" type="Script" id=1]
 [ext_resource path="res://lvl_0/scene_assets/ui_blue/ui_blue_theme.tres" type="Theme" id=2]
 [ext_resource path="res://lvl_0/scene_assets/ui_green/ui_green_theme.tres" type="Theme" id=3]
 [ext_resource path="res://lvl_0/familiarize_panel.gd" type="Script" id=4]
 [ext_resource path="res://lvl_0/lvl_0_quiz_panel.gd" type="Script" id=5]
+[ext_resource path="res://lvl_0/scene_assets/blue_sprite.png" type="Texture" id=6]
+[ext_resource path="res://lvl_0/scene_assets/green_sprite.png" type="Texture" id=7]
+[ext_resource path="res://lvl_0/scene_assets/notbook_icon.png" type="Texture" id=8]
 
 [node name="Control" type="Control"]
 anchor_right = 1.0
@@ -216,6 +219,28 @@ margin_right = 0.0879822
 margin_bottom = -0.0139999
 text = "0/1"
 
+[node name="send_color" type="Sprite" parent="quiz_panel"]
+position = Vector2( 54, 58 )
+scale = Vector2( 1.3125, 1.25 )
+texture = ExtResource( 6 )
+
+[node name="rec_color" type="Sprite" parent="quiz_panel"]
+position = Vector2( 173, 58 )
+scale = Vector2( 1.25, 1.25 )
+texture = ExtResource( 7 )
+
+[node name="send_num" type="Label" parent="quiz_panel"]
+anchor_left = 0.195
+anchor_top = 0.361
+anchor_right = 0.254
+anchor_bottom = 0.613
+margin_left = 0.160011
+margin_top = 0.041008
+margin_right = -0.0479889
+margin_bottom = 0.0530167
+align = 1
+valign = 1
+
 [node name="notebook_panel" type="Panel" parent="."]
 anchor_left = 0.015
 anchor_top = 0.195
@@ -244,6 +269,11 @@ margin_left = -0.312
 margin_top = 0.199951
 margin_right = -0.128002
 margin_bottom = -0.200012
+
+[node name="notebook_icon" type="Sprite" parent="notebook_btn"]
+position = Vector2( 17.5, 17.5 )
+scale = Vector2( 0.225, 0.275001 )
+texture = ExtResource( 8 )
 
 [connection signal="pressed" from="prompt_panel/next_button" to="." method="_on_next_button_pressed"]
 [connection signal="pressed" from="familiarize_panel/send_blue" to="familiarize_panel" method="_on_send_blue_pressed"]

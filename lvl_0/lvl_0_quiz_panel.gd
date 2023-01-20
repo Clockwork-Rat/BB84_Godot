@@ -1,5 +1,12 @@
 extends Panel
 
+var blue_sprite = preload("res://lvl_0/scene_assets/blue_sprite.png")
+var green_sprite = preload("res://lvl_0/scene_assets/green_sprite.png")
+
+onready var send_color = $send_color
+onready var rec_color = $rec_color
+onready var send_num = $send_num
+
 enum COLOR_STATE {
 	BLUE_STATE,
 	GREEN_STATE,
@@ -26,25 +33,31 @@ func set_all():
 	if tmp == 0:
 		send_color_state = COLOR_STATE.BLUE_STATE
 		print("blue")
+		send_color.texture = blue_sprite
 	else:
 		send_color_state = COLOR_STATE.GREEN_STATE
 		print("green")
+		send_color.texture = green_sprite
 	
 	tmp = get_state()
 	if tmp == 0:
 		send_number_state = NUMBER_STATE.ZERO_STATE
 		print("zero")
+		send_num.text = "0"
 	else:
 		send_number_state = NUMBER_STATE.ONE_STATE
 		print("one")
+		send_num.text = "1"
 		
 	tmp = get_state()
 	if tmp == 0:
 		rec_color_state = COLOR_STATE.BLUE_STATE
 		print("blue")
+		rec_color.texture = blue_sprite
 	else: 
 		rec_color_state = COLOR_STATE.GREEN_STATE
 		print("green")
+		rec_color.texture = green_sprite
 		
 	if correct_answers >= 5:
 		emit_signal("enough_correct")
