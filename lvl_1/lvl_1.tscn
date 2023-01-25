@@ -71,11 +71,13 @@ shadow_enabled = true
 
 [node name="bb84" type="Spatial" parent="."]
 
-[node name="polarizer" parent="." instance=ExtResource( 4 )]
-transform = Transform( -8.74228e-09, 0, 0.2, 0, 0.2, 0, -0.2, 0, -8.74228e-09, -0.545149, 1.13677, -3.40907 )
+[node name="kit" type="Spatial" parent="."]
 
-[node name="polarizer3" parent="." instance=ExtResource( 4 )]
+[node name="polarizer2" parent="kit" instance=ExtResource( 4 )]
+transform = Transform( 0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0.364596, 1.13677, -3.13759 )
+
+[node name="polarizer3" parent="kit" instance=ExtResource( 4 )]
 transform = Transform( -8.74228e-09, 0, 0.2, 0, 0.2, 0, -0.2, 0, -8.74228e-09, 0.640439, 1.13677, -3.40907 )
 
-[node name="polarizer2" parent="." instance=ExtResource( 4 )]
-transform = Transform( 0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0.364596, 1.13677, -3.13759 )
+[node name="polarizer" parent="kit" instance=ExtResource( 4 )]
+transform = Transform( -8.74228e-09, 0, 0.2, 0, 0.2, 0, -0.2, 0, -8.74228e-09, -0.545149, 1.13677, -3.40907 )

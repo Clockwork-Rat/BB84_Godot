@@ -11,6 +11,7 @@ onready var animation_player = $"../main_menu_anim_player"
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	animation_player.play("camera_bob")
+	pass
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

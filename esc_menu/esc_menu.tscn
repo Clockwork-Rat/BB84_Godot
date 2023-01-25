@@ -1,8 +1,11 @@
-[gd_scene format=2]
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://esc_menu/esc_menu.gd" type="Script" id=1]
 
 [node name="Control" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+script = ExtResource( 1 )
 
 [node name="menu_panel" type="Panel" parent="."]
 anchor_left = 0.267
@@ -13,3 +16,15 @@ margin_left = -0.40802
 margin_top = 0.199997
 margin_right = 0.359985
 margin_bottom = 0.199982
+
+[node name="quit_button" type="Button" parent="menu_panel"]
+anchor_left = 0.315
+anchor_top = 0.775
+anchor_right = 0.675
+anchor_bottom = 0.93
+margin_left = -0.199997
+margin_top = 0.0499878
+margin_bottom = 0.0599823
+text = "Quit Game"
+
+[connection signal="pressed" from="menu_panel/quit_button" to="." method="_on_quit_button_pressed"]

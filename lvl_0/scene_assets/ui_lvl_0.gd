@@ -10,6 +10,9 @@ var filepath = "res://lvl_0/scene_assets/tutorial_text.json"
 var json : JSONParseResult
 
 var nb_panel_active = false
+var esc_menu_active = false
+
+var escape_menu = preload("res://esc_menu/esc_menu.tscn").instance()
 
 enum panel_state {
 	INTRO_STATE,
@@ -19,6 +22,16 @@ enum panel_state {
 }
 
 var current_state = panel_state.INTRO_STATE
+
+func _unhandled_input(event):
+	if event is InputEventKey:
+		if event.pressed and event.scancode == KEY_ESCAPE:
+			if not esc_menu_active:
+				add_child(escape_menu)
+				esc_menu_active = true
+			else:
+				remove_child(escape_menu)
+				esc_menu_active = false
 
 func _ready():
 	var file_load = File.new()
