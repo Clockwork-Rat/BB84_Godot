@@ -6,6 +6,7 @@ onready var select_panel = $select_panel
 onready var basis_number = $select_panel/select_number
 onready var notebook_text = $notebook_panel/notebook_text
 onready var notebook = $notebook_panel
+onready var keep_reject = $keep_reject
 
 var filepath = "res://lvl_1/scene_assets/lvl_1_text.json"
 var json : JSONParseResult
@@ -16,7 +17,8 @@ enum PROMPT_STATE {
 	INTRO_1,
 	INTRO_2,
 	INTRO_3,
-	INTRO_4
+	INTRO_4,
+	INTRO_5
 }
 
 enum COLOR_STATE {
@@ -67,7 +69,6 @@ func _process(_delta):
 			
 
 func _on_next_btn_pressed():
-	
 	if curr_state == PROMPT_STATE.INTRO_1:
 		curr_state = PROMPT_STATE.INTRO_2
 		prompt_text.text = json.result["1"]
@@ -77,6 +78,10 @@ func _on_next_btn_pressed():
 		select_panel.show()
 		next_button.disabled = true
 	elif curr_state == PROMPT_STATE.INTRO_4:
+		prompt_text.text = json.result["4"]
+		curr_state = PROMPT_STATE.INTRO_5
+		keep_reject.show()
+	elif curr_state == PROMPT_STATE.INTRO_5:
 		pass
 	else:
 		pass

@@ -1,9 +1,8 @@
 [gd_scene load_steps=9 format=2]
 
-[ext_resource path="res://lvl_1/lvl_1_ui.tscn" type="PackedScene" id=1]
-[ext_resource path="res://lvl_0/scene_assets/desk_mat.tres" type="Material" id=2]
-[ext_resource path="res://lvl_0/scene_assets/wall_material.tres" type="Material" id=3]
-[ext_resource path="res://model_assets/polarizer.tscn" type="PackedScene" id=4]
+[ext_resource path="res://lvl_0/scene_assets/desk_mat.tres" type="Material" id=1]
+[ext_resource path="res://lvl_0/scene_assets/wall_material.tres" type="Material" id=2]
+[ext_resource path="res://main_menu/scene_assets/mm_bg_camera.gd" type="Script" id=3]
 
 [sub_resource type="CubeMesh" id=1]
 
@@ -13,12 +12,23 @@
 
 [sub_resource type="CubeMesh" id=4]
 
-[node name="Spatial" type="Spatial"]
+[sub_resource type="Animation" id=5]
+resource_name = "camera_bob"
+length = 5.0
+loop = true
+tracks/0/type = "transform"
+tracks/0/path = NodePath("Camera")
+tracks/0/interp = 1
+tracks/0/loop_wrap = false
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = PoolRealArray( 0, 1, 0, 2.133, -1.262, -0.149958, 0, 0, 0.988692, 1, 1, 1, 1.4, 1, 0, 2.133, -1.262, -0.131175, 0, 0, 0.991359, 1, 1, 1, 2.5, 1, 0, 2.133, -1.262, -0.127186, 0, 0, 0.991879, 1, 1, 1, 3.5, 1, 0, 2.133, -1.262, -0.131192, 0, 0, 0.991357, 1, 1, 1, 5, 1, 0, 2.133, -1.262, -0.149958, 0, 0, 0.988692, 1, 1, 1 )
+
+[node name="main_menu_bg" type="Spatial"]
 
 [node name="Camera" type="Camera" parent="."]
-transform = Transform( 1, 0, 0, 0, 0.943985, 0.329987, 0, -0.329987, 0.943985, 0, 2.03755, -1.90594 )
-
-[node name="Control" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 0.955025, 0.296525, 0, -0.296525, 0.955025, 0, 2.13324, 1.25047 )
+script = ExtResource( 3 )
 
 [node name="desk" type="Spatial" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.624744, 0 )
@@ -27,31 +37,31 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.624744, 0 )
 transform = Transform( 1.433, 0, 0, 0, 0.064, 0, 0, 0, 0.63, 0, 1.86316, -3.22511 )
 mesh = SubResource( 1 )
 skeleton = NodePath("../..")
-material/0 = ExtResource( 2 )
+material/0 = ExtResource( 1 )
 
 [node name="desk_leg_1" type="MeshInstance" parent="desk/desktop"]
 transform = Transform( 0.031, 0, 0, 0, 8.02801, 0, 0, 0, 0.0610001, -0.875412, -9.18991, 0.832267 )
 mesh = SubResource( 2 )
 skeleton = NodePath("../..")
-material/0 = ExtResource( 2 )
+material/0 = ExtResource( 1 )
 
 [node name="desk_leg_2" type="MeshInstance" parent="desk/desktop"]
 transform = Transform( 0.031, 0, 0, 0, 8.02801, 0, 0, 0, 0.0610001, 0.875, -9.19, 0.832 )
 mesh = SubResource( 2 )
 skeleton = NodePath("../..")
-material/0 = ExtResource( 2 )
+material/0 = ExtResource( 1 )
 
 [node name="desk_leg_3" type="MeshInstance" parent="desk/desktop"]
 transform = Transform( 0.031, 0, 0, 0, 8.02801, 0, 0, 0, 0.0610001, -0.875, -9.19, -0.832 )
 mesh = SubResource( 2 )
 skeleton = NodePath("../..")
-material/0 = ExtResource( 2 )
+material/0 = ExtResource( 1 )
 
 [node name="desk_leg_4" type="MeshInstance" parent="desk/desktop"]
 transform = Transform( 0.031, 0, 0, 0, 8.02801, 0, 0, 0, 0.0610001, 0.875, -9.19, -0.832 )
 mesh = SubResource( 2 )
 skeleton = NodePath("../..")
-material/0 = ExtResource( 2 )
+material/0 = ExtResource( 1 )
 
 [node name="house" type="Spatial" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.69846 )
@@ -63,19 +73,12 @@ mesh = SubResource( 3 )
 [node name="back_wall" type="MeshInstance" parent="house"]
 transform = Transform( 9.369, 0, 0, 0, 3.249, 0, 0, 0, 0.305, 0, 3.0224, -6.07053 )
 mesh = SubResource( 4 )
-material/0 = ExtResource( 3 )
+material/0 = ExtResource( 2 )
+
+[node name="main_menu_anim_player" type="AnimationPlayer" parent="."]
+anims/camera_bob = SubResource( 5 )
 
 [node name="OmniLight" type="OmniLight" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.28984, -2.96903 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0263522, 3.2723, -0.327008 )
+light_energy = 2.614
 shadow_enabled = true
-
-[node name="bb84" type="Spatial" parent="."]
-
-[node name="polarizer" parent="." instance=ExtResource( 4 )]
-transform = Transform( -8.74228e-09, 0, 0.2, 0, 0.2, 0, -0.2, 0, -8.74228e-09, -0.545149, 1.13677, -3.40907 )
-
-[node name="polarizer3" parent="." instance=ExtResource( 4 )]
-transform = Transform( -8.74228e-09, 0, 0.2, 0, 0.2, 0, -0.2, 0, -8.74228e-09, 0.640439, 1.13677, -3.40907 )
-
-[node name="polarizer2" parent="." instance=ExtResource( 4 )]
-transform = Transform( 0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0.364596, 1.13677, -3.13759 )

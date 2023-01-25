@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://main_menu/main_menu.gd" type="Script" id=1]
+[ext_resource path="res://main_menu/main_menu_bg.tscn" type="PackedScene" id=2]
 
 [node name="Control" type="Control"]
 anchor_right = 1.0
@@ -19,48 +20,50 @@ margin_bottom = -0.200005
 text = "Game Title"
 
 [node name="btn_lvl_0" type="Button" parent="."]
-anchor_left = 0.33
-anchor_top = 0.228
-anchor_right = 0.387
-anchor_bottom = 0.32
-margin_left = 0.0799866
-margin_top = 0.199997
-margin_right = -2.28802
-margin_bottom = -1.52588e-05
+anchor_left = 0.033
+anchor_top = 0.213
+anchor_right = 0.236
+anchor_bottom = 0.283
+margin_left = 0.208
+margin_top = 0.199989
+margin_right = 0.335983
+margin_bottom = 0.199982
 text = "Level 0"
 
 [node name="btn_lvl_1" type="Button" parent="."]
-anchor_left = 0.159
-anchor_top = 0.497
-anchor_right = 0.22
-anchor_bottom = 0.59
-margin_left = 0.18399
-margin_top = -0.200012
-margin_right = -0.280014
-margin_bottom = 0.999969
+anchor_left = 0.033
+anchor_top = 0.308
+anchor_right = 0.236
+anchor_bottom = 0.378
+margin_left = 0.208
+margin_top = 0.199982
+margin_right = 0.335983
+margin_bottom = 0.199982
 text = "Level 1"
 
 [node name="btn_lvl_2" type="Button" parent="."]
-anchor_left = 0.326
-anchor_top = 0.497
-anchor_right = 0.387
-anchor_bottom = 0.592
-margin_left = 0.175995
-margin_top = -0.200012
-margin_right = -0.288025
+anchor_left = 0.033
+anchor_top = 0.407
+anchor_right = 0.236
+anchor_bottom = 0.477
+margin_left = 0.208
+margin_top = -0.199997
+margin_right = 0.335983
 margin_bottom = -0.200012
 text = "Level 2"
 
 [node name="btn_lvl_3" type="Button" parent="."]
-anchor_left = 0.491
-anchor_top = 0.497
-anchor_right = 0.552
-anchor_bottom = 0.592
-margin_left = 0.215973
+anchor_left = 0.033
+anchor_top = 0.507
+anchor_right = 0.236
+anchor_bottom = 0.577
+margin_left = 0.208
 margin_top = -0.200012
-margin_right = -0.248047
+margin_right = 0.335983
 margin_bottom = -0.200012
 text = "Level 3"
+
+[node name="main_menu_bg" parent="." instance=ExtResource( 2 )]
 
 [connection signal="pressed" from="btn_lvl_0" to="." method="_on_btn_lvl_0_pressed"]
 [connection signal="pressed" from="btn_lvl_1" to="." method="_on_btn_lvl_1_pressed"]

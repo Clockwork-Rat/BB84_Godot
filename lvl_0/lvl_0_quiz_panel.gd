@@ -24,41 +24,50 @@ var send_number_state = NUMBER_STATE.NONE
 var rec_color_state = COLOR_STATE.NONE
 
 var correct_answers = 0
+var enter = true
 
 signal enough_correct
 
+#stop repeat questions
+
 func set_all():
 	print("-----------")
-	var tmp = get_state()
-	if tmp == 0:
-		send_color_state = COLOR_STATE.BLUE_STATE
-		print("blue")
-		send_color.texture = blue_sprite
-	else:
-		send_color_state = COLOR_STATE.GREEN_STATE
-		print("green")
-		send_color.texture = green_sprite
 	
-	tmp = get_state()
-	if tmp == 0:
-		send_number_state = NUMBER_STATE.ZERO_STATE
-		print("zero")
-		send_num.text = "0"
-	else:
-		send_number_state = NUMBER_STATE.ONE_STATE
-		print("one")
-		send_num.text = "1"
+	var tmp_send_color_state: int
+	var tmp_send_number_state: int
+	var tmp_rec_color_state: int
+	
+	while true:
+		var tmp = get_state()				
+		if tmp == 0:
+			tmp_send_color_state = COLOR_STATE.BLUE_STATE
+			send_color.texture = blue_sprite
+		else:
+			tmp_send_color_state = COLOR_STATE.GREEN_STATE
+			send_color.texture = green_sprite
 		
-	tmp = get_state()
-	if tmp == 0:
-		rec_color_state = COLOR_STATE.BLUE_STATE
-		print("blue")
-		rec_color.texture = blue_sprite
-	else: 
-		rec_color_state = COLOR_STATE.GREEN_STATE
-		print("green")
-		rec_color.texture = green_sprite
-		
+		tmp = get_state()
+		if tmp == 0:
+			tmp_send_number_state = NUMBER_STATE.ZERO_STATE
+			send_num.text = "0"
+		else:
+			tmp_send_number_state = NUMBER_STATE.ONE_STATE
+			send_num.text = "1"
+
+		tmp = get_state()
+		if tmp == 0:
+			tmp_rec_color_state = COLOR_STATE.BLUE_STATE
+			rec_color.texture = blue_sprite
+		else: 
+			tmp_rec_color_state = COLOR_STATE.GREEN_STATE
+			rec_color.texture = green_sprite
+
+		if _test_previous(tmp_send_color_state, tmp_send_number_state, tmp_rec_color_state):
+			send_color_state = tmp_send_color_state
+			send_number_state = tmp_send_number_state
+			rec_color_state = tmp_rec_color_state
+			break;
+
 	if correct_answers >= 5:
 		emit_signal("enough_correct")
 	
@@ -85,6 +94,14 @@ func _on_zero_btn_pressed():
 		correct_answers = 0
 		print("wrong")
 	set_all()
+
+func _test_previous( cur_send_color, cur_send_number, cur_rec_color ):
+	if (cur_send_color == send_color_state and 
+		cur_send_number == send_number_state and 
+		cur_rec_color == rec_color_state):
+		return false
+
+	return true
 
 
 func _on_one_btn_pressed():
