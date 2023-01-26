@@ -14,3 +14,8 @@ func _ready():
 func _on_quit_button_pressed():
 	get_tree().quit(0)
 	pass # Replace with function body.
+
+
+func _on_main_menu_btn_pressed():
+	get_tree().change_scene("res://main_menu/main_menu.tscn")
+	pass # Replace with function body.

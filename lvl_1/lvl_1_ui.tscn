@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://lvl_1/lvl_1_ui.gd" type="Script" id=1]
 [ext_resource path="res://lvl_0/scene_assets/ui_blue/ui_blue_theme.tres" type="Theme" id=2]
 [ext_resource path="res://lvl_0/scene_assets/ui_green/ui_green_theme.tres" type="Theme" id=3]
 [ext_resource path="res://lvl_0/scene_assets/notbook_icon.png" type="Texture" id=4]
+[ext_resource path="res://lvl_0/scene_assets/blue_sprite.png" type="Texture" id=5]
 
 [node name="Control" type="Control"]
 anchor_right = 1.0
@@ -102,7 +103,6 @@ align = 1
 valign = 1
 
 [node name="keep_reject" type="Panel" parent="."]
-visible = false
 anchor_left = 0.318
 anchor_top = 0.337
 anchor_right = 0.683
@@ -112,7 +112,37 @@ margin_top = -0.200012
 margin_right = -0.392029
 margin_bottom = 0.199982
 
-[node name="Sprite" type="Sprite" parent="keep_reject"]
+[node name="send_color" type="Sprite" parent="keep_reject"]
+position = Vector2( 71.5, 43.5 )
+scale = Vector2( 1.46875, 1.46875 )
+texture = ExtResource( 5 )
+
+[node name="rec_color" type="Sprite" parent="keep_reject"]
+position = Vector2( 140, 44 )
+scale = Vector2( 1.46875, 1.46875 )
+texture = ExtResource( 5 )
+
+[node name="keep_btn" type="Button" parent="keep_reject"]
+anchor_left = 0.544
+anchor_top = 0.409
+anchor_right = 0.692
+anchor_bottom = 0.636
+margin_left = 0.0879669
+margin_top = 0.00799942
+margin_right = -0.116028
+margin_bottom = 0.0319977
+text = "Keep"
+
+[node name="reject_btn" type="Button" parent="keep_reject"]
+anchor_left = 0.769
+anchor_top = 0.42
+anchor_right = 0.917
+anchor_bottom = 0.648
+margin_left = 0.162964
+margin_top = 0.0399971
+margin_right = -0.0410461
+margin_bottom = -0.0240021
+text = "Reject"
 
 [node name="notebook_btn" type="Button" parent="."]
 anchor_left = 0.012
@@ -151,4 +181,6 @@ margin_bottom = 0.18399
 [connection signal="pressed" from="prompt_panel/next_btn" to="." method="_on_next_btn_pressed"]
 [connection signal="pressed" from="select_panel/blue_button" to="." method="_on_blue_button_pressed"]
 [connection signal="pressed" from="select_panel/green_button" to="." method="_on_green_button_pressed"]
+[connection signal="pressed" from="keep_reject/keep_btn" to="." method="_on_keep_btn_pressed"]
+[connection signal="pressed" from="keep_reject/reject_btn" to="." method="_on_reject_btn_pressed"]
 [connection signal="pressed" from="notebook_btn" to="." method="_on_notebook_btn_pressed"]

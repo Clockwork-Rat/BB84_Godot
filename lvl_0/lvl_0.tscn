@@ -1,8 +1,9 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://lvl_0/scene_assets/desk_mat.tres" type="Material" id=1]
 [ext_resource path="res://lvl_0/ui_lvl_0.tscn" type="PackedScene" id=2]
 [ext_resource path="res://lvl_0/scene_assets/wall_material.tres" type="Material" id=3]
+[ext_resource path="res://model_assets/polarizer.tscn" type="PackedScene" id=4]
 
 [sub_resource type="CubeMesh" id=1]
 
@@ -18,7 +19,7 @@
 transform = Transform( 1, 0, 0, 0, 0.277364, 0.960765, 0, -0.960765, 0.277364, 0, 3.11921, -2.40428 )
 
 [node name="OmniLight" type="OmniLight" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.930113, 1.6844, -3.22408 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.614361, 1.6844, -1.96337 )
 shadow_enabled = true
 
 [node name="desk" type="Spatial" parent="."]
@@ -67,3 +68,14 @@ mesh = SubResource( 4 )
 material/0 = ExtResource( 3 )
 
 [node name="Control" parent="." instance=ExtResource( 2 )]
+
+[node name="kit" type="Spatial" parent="."]
+
+[node name="polarizer2" parent="kit" instance=ExtResource( 4 )]
+transform = Transform( 0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0.613972, 1.13677, -3.13759 )
+
+[node name="polarizer3" parent="kit" instance=ExtResource( 4 )]
+transform = Transform( -8.74228e-09, 0, 0.2, 0, 0.2, 0, -0.2, 0, -8.74228e-09, 0.889815, 1.13677, -3.40907 )
+
+[node name="polarizer" parent="kit" instance=ExtResource( 4 )]
+transform = Transform( -8.74228e-09, 0, 0.2, 0, 0.2, 0, -0.2, 0, -8.74228e-09, -0.867685, 1.13677, -3.40907 )

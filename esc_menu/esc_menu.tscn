@@ -27,4 +27,16 @@ margin_top = 0.0499878
 margin_bottom = 0.0599823
 text = "Quit Game"
 
+[node name="main_menu_btn" type="Button" parent="menu_panel"]
+anchor_left = 0.317
+anchor_top = 0.554
+anchor_right = 0.677
+anchor_bottom = 0.709
+margin_left = -0.160004
+margin_top = 0.0679779
+margin_right = 0.0399475
+margin_bottom = 0.0779724
+text = "Main Menu"
+
 [connection signal="pressed" from="menu_panel/quit_button" to="." method="_on_quit_button_pressed"]
+[connection signal="pressed" from="menu_panel/main_menu_btn" to="." method="_on_main_menu_btn_pressed"]
