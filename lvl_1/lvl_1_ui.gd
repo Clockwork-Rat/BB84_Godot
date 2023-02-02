@@ -186,7 +186,7 @@ func _on_reject_btn_pressed():
 		
 func keep_reject_pressed(reject: bool):
 	disable_timer = disable_timer_max
-	if basis_idx <= len(send_colors_t):
+	if basis_idx < len(send_colors_t):
 		
 		if ((send_color.texture == rec_color.texture and not reject) 
 				or (send_color.texture != rec_color.texture and reject)):
