@@ -8,6 +8,16 @@
 
 config_version=4
 
+_global_script_classes=[ {
+"base": "Reference",
+"class": "Run",
+"language": "GDScript",
+"path": "res://standard_assets/run.gd"
+} ]
+_global_script_class_icons={
+"Run": ""
+}
+
 [application]
 
 config/name="BB84_Godot"

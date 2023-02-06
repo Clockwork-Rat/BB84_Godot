@@ -4,5 +4,8 @@
     "2" : "You and alice will choose your colors at the same time, start picking!",
     "3" : "Okay, that's enough for now! The sender also spent their time choosing some numbers to send, let's see what each of you sent! Open your journal to take a look.",
     "4" : "In your notebook you have the colors that the sender sent their numbers in, as well as your own colors, and by your colors is the number you received. Some of the information that was sent is useful while some isn't.",
-    "5" : "Keep the tutorial in mind! Which nubers do you know are the same as the ones the sender sent? Use the Keep and Reject buttons to indicate what information is useful"
+    "5" : "Keep the tutorial in mind! Which nubers do you know are the same as the ones the sender sent? Use the Keep and Reject buttons to indicate what information is useful",
+    "6" : "Great Job! Now you'll use the information sent between you two to unlock this keypad. The code your partner sent is written in your notebook",
+    "7" : "Fantastic! You were able to put the correct code into the keypad! In the next level, you'll see a model of how this may be done in the real world.",
+    "nbi" : "The code is the numbers you received from the following bases:\n"
 }

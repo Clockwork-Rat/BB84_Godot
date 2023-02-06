@@ -1,0 +1,6 @@
+[gd_resource type="Theme" load_steps=2 format=2]
+
+[ext_resource path="res://lvl_1/scene_assets/button_textures/green_button_disabled.tres" type="StyleBox" id=1]
+
+[resource]
+Button/styles/disabled = ExtResource( 1 )
