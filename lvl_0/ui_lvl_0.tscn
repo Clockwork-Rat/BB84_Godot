@@ -47,17 +47,36 @@ margin_bottom = 0.0289917
 text = "In this Level, you will be learning how sending informaiton between two people works in the BB84 encryption protocol. During part one, try to figure out the pattern of the result."
 
 [node name="next_button" type="Button" parent="prompt_panel"]
-anchor_left = 0.9
-anchor_top = 0.678
+anchor_left = 0.902
+anchor_top = 0.723
 anchor_right = 0.981
-anchor_bottom = 0.9
-margin_left = -3.05176e-05
-margin_top = -0.0200043
-margin_right = -0.120026
+anchor_bottom = 0.945
+margin_left = -0.0400696
+margin_top = -0.0229492
+margin_right = 0.879974
+margin_bottom = -0.00294495
 text = "Next"
 
-[node name="familiarize_panel" type="Panel" parent="."]
+[node name="back_button" type="Button" parent="prompt_panel"]
+anchor_left = 0.021
+anchor_top = 0.723
+anchor_right = 0.121
+anchor_bottom = 0.941
+margin_left = 0.079999
+margin_top = -0.0229797
+margin_right = 0.079998
+margin_bottom = -0.0409775
+text = "Back"
+
+[node name="hl_select_panel" type="Panel" parent="."]
 visible = false
+margin_left = 249.0
+margin_top = 157.0
+margin_right = 775.0
+margin_bottom = 291.0
+theme = ExtResource( 3 )
+
+[node name="familiarize_panel" type="Panel" parent="."]
 anchor_left = 0.25
 anchor_top = 0.275
 anchor_right = 0.75
@@ -65,6 +84,50 @@ anchor_bottom = 0.473
 margin_right = -6.10352e-05
 margin_bottom = 0.199982
 script = ExtResource( 4 )
+
+[node name="hl_send_color" type="Panel" parent="familiarize_panel"]
+visible = false
+anchor_left = 0.033
+anchor_top = 0.202
+anchor_right = 0.289
+anchor_bottom = 0.765
+margin_left = 0.104002
+margin_top = -0.0379944
+margin_right = 0.0320129
+margin_bottom = -0.0349808
+theme = ExtResource( 3 )
+
+[node name="hl_send_num" type="Panel" parent="familiarize_panel"]
+visible = false
+anchor_left = 0.301
+anchor_top = 0.202
+anchor_right = 0.549
+anchor_bottom = 0.765
+margin_left = -0.112
+margin_top = -0.0379944
+margin_right = -0.0879822
+margin_bottom = -0.0349808
+theme = ExtResource( 3 )
+
+[node name="hl_rec_color" type="Panel" parent="familiarize_panel"]
+visible = false
+anchor_left = 0.613
+anchor_top = 0.202
+anchor_right = 0.859
+anchor_bottom = 0.765
+margin_left = 0.144012
+margin_top = -0.0379944
+margin_right = 0.192047
+margin_bottom = -0.0349808
+theme = ExtResource( 3 )
+
+[node name="hl_reset" type="Panel" parent="familiarize_panel"]
+visible = false
+margin_left = 216.0
+margin_top = 90.0
+margin_right = 291.0
+margin_bottom = 118.0
+theme = ExtResource( 3 )
 
 [node name="send_blue" type="Button" parent="familiarize_panel"]
 anchor_left = 0.053
@@ -112,24 +175,24 @@ text = "1"
 
 [node name="rec_blue" type="Button" parent="familiarize_panel"]
 anchor_left = 0.627
-anchor_top = 0.231
+anchor_top = 0.261
 anchor_right = 0.719
-anchor_bottom = 0.663
+anchor_bottom = 0.693
 margin_left = -0.0240173
-margin_top = 3.511
-margin_right = -0.128021
-margin_bottom = 3.583
+margin_top = -0.0589981
+margin_right = -0.128052
+margin_bottom = 0.0130005
 theme = ExtResource( 2 )
 
 [node name="rec_green" type="Button" parent="familiarize_panel"]
 anchor_left = 0.752
-anchor_top = 0.231
+anchor_top = 0.261
 anchor_right = 0.844
-anchor_bottom = 0.673
-margin_left = -0.0240173
-margin_top = 4.511
-margin_right = -0.128021
-margin_bottom = 3.543
+anchor_bottom = 0.694
+margin_left = -0.0239258
+margin_top = -0.059
+margin_right = -0.127899
+margin_bottom = 0.0439911
 theme = ExtResource( 3 )
 
 [node name="reset_btn" type="Button" parent="familiarize_panel"]
@@ -178,6 +241,7 @@ align = 1
 valign = 1
 
 [node name="quiz_panel" type="Panel" parent="."]
+visible = false
 anchor_left = 0.25
 anchor_top = 0.275
 anchor_right = 0.75
@@ -260,6 +324,18 @@ margin_top = 0.0479999
 margin_right = -0.112015
 margin_bottom = 0.18399
 
+[node name="hl_notebook" type="Panel" parent="."]
+visible = false
+anchor_left = 0.005
+anchor_top = 0.908
+anchor_right = 0.056
+anchor_bottom = 0.997
+margin_left = -0.12
+margin_top = 0.199951
+margin_right = -0.344002
+margin_bottom = -0.200012
+theme = ExtResource( 3 )
+
 [node name="notebook_btn" type="Button" parent="."]
 anchor_left = 0.013
 anchor_top = 0.923
@@ -282,7 +358,11 @@ margin_bottom = -1.54506
 texture = ExtResource( 8 )
 expand = true
 
+[connection signal="training_mode_ended" from="." to="familiarize_panel" method="_on_Control_training_mode_ended"]
+[connection signal="walkthrough_ended" from="." to="familiarize_panel" method="_on_Control_walkthrough_ended"]
 [connection signal="pressed" from="prompt_panel/next_button" to="." method="_on_next_button_pressed"]
+[connection signal="pressed" from="prompt_panel/back_button" to="." method="_on_back_button_pressed"]
+[connection signal="pressed_correct_button" from="familiarize_panel" to="." method="_on_familiarize_panel_pressed_correct_button"]
 [connection signal="pressed" from="familiarize_panel/send_blue" to="familiarize_panel" method="_on_send_blue_pressed"]
 [connection signal="pressed" from="familiarize_panel/send_green" to="familiarize_panel" method="_on_send_green_pressed"]
 [connection signal="pressed" from="familiarize_panel/send_zero" to="familiarize_panel" method="_on_send_zero_pressed"]

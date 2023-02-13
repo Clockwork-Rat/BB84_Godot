@@ -1,10 +1,12 @@
-[gd_resource type="Theme" load_steps=4 format=2]
+[gd_resource type="Theme" load_steps=5 format=2]
 
 [ext_resource path="res://lvl_0/scene_assets/ui_green/ui_green_active.tres" type="StyleBox" id=1]
 [ext_resource path="res://lvl_0/scene_assets/ui_green/ui_green_hover.tres" type="StyleBox" id=2]
 [ext_resource path="res://lvl_0/scene_assets/ui_green/ui_green_disabled.tres" type="StyleBox" id=3]
+[ext_resource path="res://lvl_0/scene_assets/ui_green/ui_panel_green.tres" type="StyleBox" id=4]
 
 [resource]
 Button/styles/disabled = ExtResource( 3 )
 Button/styles/hover = ExtResource( 2 )
 Button/styles/normal = ExtResource( 1 )
+Panel/styles/panel = ExtResource( 4 )

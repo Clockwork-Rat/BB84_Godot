@@ -1,6 +1,18 @@
 {
-    "0" : "In this Level, you will be learning how sending informaiton between two people works in the BB84 encryption protocol. During part one, try to figure out the pattern of the result.",
-    "1" : "Start by messing with these buttons. You are able to chose a color and a number for the 'sender' portion, and a color for the 'receiver' portion. The final box will produce the result. Once you think you've got the pattern, go ahead and hit the next button!",
-    "2" : "Try this quiz! Your goal is to answer five questions correctly in a row. Keep in mind that all answers can be correct!",
+    "wt-0" : "We'll start with an overview of the controls! First, all of the buttons that you will need to go about will be pointed out and then you'll do one of the first runs yourself.",
+    "wt-1" : "Here is the notebook. This stores a log of what you've done. Just click this icon and you'll see it appear and click it again to put it away.",
+    "wt-2" : "This is the selection panel, you'll be able to run simulations by clicking the buttons on it",
+    "wt-3" : "This area is where you will choose a colors for the \"sender\", you are able to choose red or blue",
+    "wt-4" : "This is the area where you will choose a number for the \"sender\". After you have chosen both, this is the sender portion of the simulation complete.",
+    "wt-5" : "This is the area where you will choose a color for the \"reciever\" portion, you have the same options as the sender: blue and red, this time select red",
+    "wt-6" : "And finally, this is the reset button which resets the experiment and allows you to choose your colors and numbers again for all sections. This is also where the notebook comes in handy, all runs will be stored here!",
+    "wt-7" : "You will not be able to go back to this point, press the next button when you think you're ready to jump into running simulations!",
+    "u-0" : "Okay, we'll start by selecting the blue button in the sender section, go ahead and press it now!",
+    "u-1" : "Great! Next, select the zero button",
+    "u-2" : "Okay, one more selection to run a simulation, press the red button in the sender section",
+    "u-3" : "Congratulations, the result of the simulation appears here, as well as in your notebook. Go ahead and open it now!",
+    "0" : "In this Level, you will be learning how sending informaiton between two people works in the BB84 encryption protocol. Use the next and back buttons below to navigate the menus!",
+    "1" : "Continue running simulations to see if you understand how the numbers and colors relate to eachother!",
+    "2" : "Try this quiz! Your goal is to answer five questions correctly in a row. Keep in mind that all answers can be correct, including the 0/1 button",
     "3" : "Congratulations! You seem like you're ready to tackle what's ahead! If you don't feel that's true, feel free to replay this level, it will still be available in the main menu."
 }
