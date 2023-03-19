@@ -39,7 +39,7 @@ func _unhandled_input(event):
 #so that the user feels like thinking is happening
 var disable_timer = 0.0
 var disable_timer_max = 0.2
-var basis_idx = 1
+var basis_idx = 0
 
 var passcode_entered = false
 
@@ -121,14 +121,14 @@ func _process(_delta):
 			if send_colors_t[i] == COLOR_STATE.BLUE:
 				notebook_text.text += "blue "
 			else:
-				notebook_text.text += "green "
+				notebook_text.text += "red "
 				
 			#notebook_text.text += (String(sent_bit_t[i]) + " ")
 			
 			if rec_colors_t[i] == COLOR_STATE.BLUE:
 				notebook_text.text += "blue "
 			else:
-				notebook_text.text += "green "
+				notebook_text.text += "red "
 				
 			notebook_text.text += (String(rec_bit_t[i]) + "\n")
 
@@ -164,7 +164,10 @@ func _on_next_btn_pressed():
 		prompt_text.text = json.result["6"]
 		curr_state = PROMPT_STATE.INTRO_7
 		keypad.show()
+		print("matching idx")
 		notebook_text.text += json.result["nbi"]
+		for i in keep_idx_0:
+			print(i)
 		while len(keep_idx_0) > 0 :
 			randomize()
 			print(String(len(keep_idx_0)))
@@ -261,6 +264,9 @@ func keep_reject_pressed(reject: bool):
 				prompt_text.text = "Yes! That's Correct"
 				
 			basis_idx += 1
+
+			if basis_idx == (len(send_colors_t) - 1):
+				keep_reject.hide()
 		else:
 			print("wrong")
 			prompt_text.text = "Try Again!"

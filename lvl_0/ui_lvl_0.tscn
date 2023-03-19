@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://lvl_0/scene_assets/ui_lvl_0.gd" type="Script" id=1]
 [ext_resource path="res://lvl_0/scene_assets/ui_blue/ui_blue_theme.tres" type="Theme" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://lvl_0/scene_assets/blue_sprite.png" type="Texture" id=6]
 [ext_resource path="res://lvl_0/scene_assets/green_sprite.png" type="Texture" id=7]
 [ext_resource path="res://lvl_0/scene_assets/notbook_icon.png" type="Texture" id=8]
+[ext_resource path="res://ui_assets/speaker.png" type="Texture" id=9]
 
 [node name="Control" type="Control"]
 anchor_right = 1.0
@@ -68,12 +69,37 @@ margin_right = 0.079998
 margin_bottom = -0.0409775
 text = "Back"
 
+[node name="speaker" type="Button" parent="prompt_panel"]
+anchor_left = 0.842
+anchor_top = 0.723
+anchor_right = 0.885
+anchor_bottom = 0.941
+margin_left = 0.159973
+margin_top = -0.0229797
+margin_right = -0.200012
+margin_bottom = -0.0409775
+
+[node name="TextureRect" type="TextureRect" parent="prompt_panel/speaker"]
+anchor_left = 0.091
+anchor_top = 0.091
+anchor_right = 0.909
+anchor_bottom = 0.909
+margin_left = -0.00200009
+margin_top = -0.00200009
+margin_right = 0.0019989
+margin_bottom = 0.0019989
+texture = ExtResource( 9 )
+expand = true
+
 [node name="hl_select_panel" type="Panel" parent="."]
 visible = false
-margin_left = 249.0
-margin_top = 157.0
-margin_right = 775.0
-margin_bottom = 291.0
+anchor_left = 0.243
+anchor_top = 0.262
+anchor_right = 0.757
+anchor_bottom = 0.485
+margin_left = 0.167984
+margin_top = -0.200012
+margin_right = -0.16803
 theme = ExtResource( 3 )
 
 [node name="familiarize_panel" type="Panel" parent="."]
@@ -123,10 +149,14 @@ theme = ExtResource( 3 )
 
 [node name="hl_reset" type="Panel" parent="familiarize_panel"]
 visible = false
-margin_left = 216.0
-margin_top = 90.0
-margin_right = 291.0
-margin_bottom = 118.0
+anchor_left = 0.422
+anchor_top = 0.756
+anchor_right = 0.568
+anchor_bottom = 1.0
+margin_left = -0.0639801
+margin_top = 0.0360184
+margin_right = 0.184021
+margin_bottom = -0.999969
 theme = ExtResource( 3 )
 
 [node name="send_blue" type="Button" parent="familiarize_panel"]
@@ -362,6 +392,7 @@ expand = true
 [connection signal="walkthrough_ended" from="." to="familiarize_panel" method="_on_Control_walkthrough_ended"]
 [connection signal="pressed" from="prompt_panel/next_button" to="." method="_on_next_button_pressed"]
 [connection signal="pressed" from="prompt_panel/back_button" to="." method="_on_back_button_pressed"]
+[connection signal="practice" from="familiarize_panel" to="." method="_on_familiarize_panel_practice"]
 [connection signal="pressed_correct_button" from="familiarize_panel" to="." method="_on_familiarize_panel_pressed_correct_button"]
 [connection signal="pressed" from="familiarize_panel/send_blue" to="familiarize_panel" method="_on_send_blue_pressed"]
 [connection signal="pressed" from="familiarize_panel/send_green" to="familiarize_panel" method="_on_send_green_pressed"]

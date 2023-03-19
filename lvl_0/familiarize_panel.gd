@@ -12,6 +12,7 @@ onready var reset = $reset_btn
 var walkthrough = false
 
 signal pressed_correct_button
+signal practice
 
 onready var notebook_panel_text = $"./../notebook_panel/notebook_text"
 
@@ -44,6 +45,8 @@ func _ready():
 
 func _input(_event):
 	if send_color_selected and send_number_selected and rec_color_selected:
+
+		emit_signal("practice")
 
 		send_color_selected = false
 		send_number_selected = false

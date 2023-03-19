@@ -1,0 +1,249 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://lvl_2/lvl_2_ui.gd" type="Script" id=1]
+[ext_resource path="res://lvl_0/scene_assets/ui_green/ui_green_theme.tres" type="Theme" id=2]
+[ext_resource path="res://lvl_0/scene_assets/ui_blue/ui_blue_theme.tres" type="Theme" id=3]
+[ext_resource path="res://lvl_0/scene_assets/notbook_icon.png" type="Texture" id=4]
+
+[node name="Control" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+
+[node name="prompt_panel" type="Panel" parent="."]
+anchor_left = 0.27
+anchor_top = 0.85
+anchor_right = 0.755
+anchor_bottom = 1.0
+margin_left = -0.480011
+margin_right = -0.120056
+
+[node name="prompt_text" type="RichTextLabel" parent="prompt_panel"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 10.0
+margin_top = 8.0
+margin_right = -9.0
+margin_bottom = -8.0
+
+[node name="next_btn" type="Button" parent="prompt_panel"]
+anchor_left = 0.877
+anchor_top = 0.7
+anchor_right = 0.97
+anchor_bottom = 0.922
+margin_left = 0.130981
+margin_right = -0.0900269
+margin_bottom = 0.0199966
+text = "Next"
+
+[node name="practice_panel" type="Panel" parent="."]
+anchor_left = 0.248
+anchor_top = 0.463
+anchor_right = 0.954
+anchor_bottom = 0.645
+margin_left = 0.0479889
+margin_top = 0.199982
+margin_right = 0.103943
+margin_bottom = -3.05176e-05
+
+[node name="send_blue" type="Button" parent="practice_panel"]
+anchor_left = 0.046
+anchor_top = 0.323
+anchor_right = 0.046
+anchor_bottom = 0.323
+margin_left = 0.742004
+margin_top = -0.207001
+margin_right = 46.742
+margin_bottom = 44.793
+rect_pivot_offset = Vector2( -269.292, -10.217 )
+theme = ExtResource( 3 )
+
+[node name="send_red" type="Button" parent="practice_panel"]
+anchor_left = 0.13
+anchor_top = 0.321
+anchor_right = 0.13
+anchor_bottom = 0.321
+margin_left = 0.00999451
+margin_top = 0.0109978
+margin_right = 46.01
+margin_bottom = 45.011
+theme = ExtResource( 2 )
+
+[node name="eav_blue" type="Button" parent="practice_panel"]
+anchor_left = 0.441
+anchor_top = 0.321
+anchor_right = 0.441
+anchor_bottom = 0.321
+margin_left = 0.156982
+margin_top = 0.0109978
+margin_right = 46.157
+margin_bottom = 45.011
+theme = ExtResource( 3 )
+
+[node name="eav_red" type="Button" parent="practice_panel"]
+anchor_left = 0.524
+anchor_top = 0.321
+anchor_right = 0.524
+anchor_bottom = 0.321
+margin_left = 0.14798
+margin_top = 0.0109901
+margin_right = 46.148
+margin_bottom = 45.011
+theme = ExtResource( 2 )
+
+[node name="rec_blue" type="Button" parent="practice_panel"]
+anchor_left = 0.714
+anchor_top = 0.321
+anchor_right = 0.714
+anchor_bottom = 0.321
+margin_left = -0.222046
+margin_top = 0.0109901
+margin_right = 45.778
+margin_bottom = 45.011
+theme = ExtResource( 3 )
+
+[node name="rec_red" type="Button" parent="practice_panel"]
+anchor_left = 0.799
+anchor_top = 0.321
+anchor_right = 0.799
+anchor_bottom = 0.321
+margin_left = 0.322998
+margin_top = 0.0109978
+margin_right = 46.323
+margin_bottom = 45.011
+theme = ExtResource( 2 )
+
+[node name="send_zero" type="Button" parent="practice_panel"]
+anchor_left = 0.217
+anchor_top = 0.323
+anchor_right = 0.217
+anchor_bottom = 0.323
+margin_left = 0.108994
+margin_top = 0.00999451
+margin_right = 46.109
+margin_bottom = 45.01
+rect_pivot_offset = Vector2( -269.292, -10.217 )
+text = "0"
+
+[node name="send_one" type="Button" parent="practice_panel"]
+anchor_left = 0.301
+anchor_top = 0.321
+anchor_right = 0.301
+anchor_bottom = 0.321
+margin_left = 0.0849915
+margin_top = 0.0109978
+margin_right = 46.085
+margin_bottom = 45.011
+text = "1"
+
+[node name="eav_result" type="Label" parent="practice_panel"]
+anchor_left = 0.603
+anchor_top = 0.45
+anchor_right = 0.603
+anchor_bottom = 0.45
+margin_left = 0.0309753
+margin_top = -0.0500031
+margin_right = 40.031
+margin_bottom = 13.95
+rect_pivot_offset = Vector2( 17, 31 )
+align = 1
+
+[node name="rec_result" type="Label" parent="practice_panel"]
+anchor_left = 0.878
+anchor_top = 0.45
+anchor_right = 0.934
+anchor_bottom = 0.578
+margin_left = 0.205994
+margin_top = -0.0500031
+margin_right = -0.281982
+margin_bottom = -0.00200272
+rect_pivot_offset = Vector2( 17, 31 )
+align = 1
+
+[node name="reset" type="Button" parent="practice_panel"]
+anchor_left = 0.462
+anchor_top = 0.789
+anchor_right = 0.462
+anchor_bottom = 0.789
+margin_left = -0.026001
+margin_top = -0.00100708
+margin_right = 66.974
+margin_bottom = 19.999
+text = "Reset"
+
+[node name="send_lbl" type="Label" parent="practice_panel"]
+anchor_left = 0.176
+anchor_top = 0.092
+anchor_right = 0.237
+anchor_bottom = 0.22
+margin_left = -0.247986
+margin_top = -0.0279703
+margin_right = -0.350983
+margin_bottom = 0.0200291
+text = "Sender"
+
+[node name="eav_lbl" type="Label" parent="practice_panel"]
+anchor_left = 0.454
+anchor_top = 0.101
+anchor_right = 0.573
+anchor_bottom = 0.229
+margin_left = -0.242004
+margin_top = -0.00897026
+margin_right = -0.278961
+margin_bottom = 0.0390282
+text = "Eavesdropper"
+
+[node name="Label" type="Label" parent="practice_panel"]
+anchor_left = 0.761
+anchor_top = 0.11
+anchor_right = 0.816
+anchor_bottom = 0.239
+margin_left = -8.203
+margin_top = 0.0100298
+margin_right = 7.03204
+margin_bottom = -0.0509701
+text = "Receiver"
+
+[node name="notebook_btn" type="Button" parent="."]
+anchor_left = 0.012
+anchor_top = 0.925
+anchor_right = 0.045
+anchor_bottom = 0.982
+margin_left = -0.288
+margin_top = -6.10352e-05
+margin_right = -0.0800018
+margin_bottom = -0.200012
+
+[node name="notebook_icon" type="Sprite" parent="notebook_btn"]
+position = Vector2( 17, 17.0001 )
+scale = Vector2( 0.216667, 0.266667 )
+texture = ExtResource( 4 )
+
+[node name="notebook_panel" type="Panel" parent="."]
+anchor_left = 0.015
+anchor_top = 0.237
+anchor_right = 0.23
+anchor_bottom = 0.815
+margin_left = -0.36
+margin_top = -0.200012
+margin_right = 0.479996
+
+[node name="notebook_text" type="RichTextLabel" parent="notebook_panel"]
+anchor_left = 0.024
+anchor_top = 0.016
+anchor_right = 0.972
+anchor_bottom = 0.978
+margin_left = 0.0959997
+margin_top = 0.0479999
+margin_right = -0.112015
+margin_bottom = 0.18399
+
+[connection signal="pressed" from="practice_panel/send_blue" to="." method="_on_send_blue_pressed"]
+[connection signal="pressed" from="practice_panel/send_red" to="." method="_on_send_red_pressed"]
+[connection signal="pressed" from="practice_panel/eav_blue" to="." method="_on_eav_blue_pressed"]
+[connection signal="pressed" from="practice_panel/eav_red" to="." method="_on_eav_red_pressed"]
+[connection signal="pressed" from="practice_panel/rec_blue" to="." method="_on_rec_blue_pressed"]
+[connection signal="pressed" from="practice_panel/rec_red" to="." method="_on_rec_red_pressed"]
+[connection signal="pressed" from="practice_panel/send_zero" to="." method="_on_send_zero_pressed"]
+[connection signal="pressed" from="practice_panel/send_one" to="." method="_on_send_one_pressed"]
+[connection signal="button_down" from="practice_panel/reset" to="." method="_on_reset_button_down"]

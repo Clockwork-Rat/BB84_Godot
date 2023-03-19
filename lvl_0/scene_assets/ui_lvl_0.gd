@@ -12,12 +12,15 @@ onready var hl_notebook = $hl_notebook
 onready var hl_select_panel = $hl_select_panel
 onready var hl_reset = $familiarize_panel/hl_reset
 onready var next_button = $prompt_panel/next_button
+onready var back_button = $prompt_panel/back_button
 
 var filepath = "res://lvl_0/scene_assets/tutorial_text.json"
 var json : JSONParseResult
 
 var nb_panel_active = false
 var esc_menu_active = false
+var practice_times = 0
+var min_practice = 5
 
 signal walkthrough_ended
 signal training_mode_ended
@@ -122,6 +125,7 @@ func _on_next_button_pressed():
 	elif current_state == panel_state.WT_7:
 		current_state = panel_state.U0
 		prompt_text.text = json.result["u-0"]
+		back_button.disabled = true
 		emit_signal("walkthrough_ended")
 		next_button.disabled = true
 		
@@ -144,11 +148,14 @@ func _on_next_button_pressed():
 	elif current_state == panel_state.U3:
 		current_state = panel_state.FIRST_PANEL_STATE
 		prompt_text.text = json.result["1"]
-	elif current_state  == panel_state.FIRST_PANEL_STATE:
+
+	elif current_state  == panel_state.FIRST_PANEL_STATE and practice_times >= min_practice:
 		current_state = panel_state.QUIZ_PANEL_STATE
 		prompt_text.text = json.result["2"]
 		first_panel.hide()
 		quiz_panel.show()
+	elif current_state == panel_state.FIRST_PANEL_STATE:
+		prompt_text.text = "Build up a bit more familiarity with the interface, try running a few more tests! Remember, the next part is a quiz."
 	elif current_state == panel_state.END_STATE:
 		var persist_file = File.new()
 		persist_file.open("res://persist.json", File.READ)
@@ -237,3 +244,6 @@ func _on_back_button_pressed():
 
 func _on_familiarize_panel_pressed_correct_button():
 	_on_next_button_pressed()
+	
+func _on_familiarize_panel_practice():
+	practice_times += 1

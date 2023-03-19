@@ -24,6 +24,10 @@ config/name="BB84_Godot"
 run/main_scene="res://main_menu/main_menu.tscn"
 config/icon="res://icon.png"
 
+[display]
+
+window/size/resizable=false
+
 [gui]
 
 common/drop_mouse_on_gui_input_disabled=true
