@@ -183,7 +183,8 @@ func _on_notebook_btn_pressed():
 func _on_back_button_pressed():
 	if c_part == part_state.WALKTHROUGH:
 		if current_state == panel_state.WT_0:
-			pass
+			current_state = panel_state.INTRO_STATE
+			prompt_text.text = json.result["0"]
 		elif current_state == panel_state.WT_1:
 			current_state = panel_state.WT_0
 			prompt_text.text = json.result["wt-0"]
