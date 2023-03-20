@@ -281,6 +281,7 @@ margin_top = -0.0510006
 margin_right = 0.0650024
 margin_bottom = 0.119995
 
+[connection signal="pressed" from="prompt_panel/next_btn" to="." method="_on_next_btn_pressed"]
 [connection signal="pressed" from="practice_panel/send_blue" to="." method="_on_send_blue_pressed"]
 [connection signal="pressed" from="practice_panel/send_red" to="." method="_on_send_red_pressed"]
 [connection signal="pressed" from="practice_panel/eav_blue" to="." method="_on_eav_blue_pressed"]

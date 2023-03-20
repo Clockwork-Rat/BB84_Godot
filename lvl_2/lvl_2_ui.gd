@@ -13,10 +13,14 @@ onready var rec_result= $practice_panel/rec_result
 onready var practice_panel = $practice_panel
 onready var dataset_panel = $dataset
 onready var dataset_txt = $dataset/generated_dataset
+onready var prompt_text = $prompt_panel/prompt_text
+onready var next_btn = $prompt_panel/next_btn
 
 onready var nb_text = $notebook_panel/notebook_text
 onready var nb = $notebook_panel
 var nb_shown = false
+
+var correct_count = 0
 
 var escape_menu = preload("res://esc_menu/esc_menu.tscn").instance()
 var esc_menu_active = false
@@ -57,11 +61,20 @@ var rec_color_sel = false
 
 var eav_pres = false
 
+var filepath = "res://lvl_2/scene_assets/lvl_2_text.json"
+var json : JSONParseResult
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	nb.hide();
-	eav_pres = _generate_data();
+	nb.hide()
+	dataset_panel.hide()
+	eav_pres = _generate_data()
+
+	var file_load = File.new()
+	file_load.open(filepath, File.READ)
+	json = JSON.parse(file_load.get_as_text())
+	prompt_text.text = json.result["0"]
 
 	pass # Replace with function body.
 
@@ -92,12 +105,15 @@ func _process(_delta):
 
 		#ready_all()
 
+	if correct_count >= 5:
+		next_btn.disabled = false
+
 		
 func col_s_to_str(col: int):
 	if col == COLOR.BLUE :
 		return "blue "
 	else:
-		return "red "
+		return "red  "
 
 func num_s_to_str(num: int):
 	if num == NUM.ZERO:
@@ -229,7 +245,7 @@ func _generate_data():
 	
 	var eav_present = false
 
-	dataset_txt.text = ""
+	dataset_txt.text = "sender\treceiver\n"
 	
 	randomize()
 	eav_present = rand_gen()
@@ -250,7 +266,7 @@ func _generate_data():
 
 			rec_num = sent_num if sent_color == rec_color else rand_gen()
 		
-		dataset_txt.text += col_s_to_str(sent_color) + num_s_to_str(sent_num) + col_s_to_str(rec_color) + num_s_to_str(rec_num) + "\n"
+		dataset_txt.text += col_s_to_str(sent_color) + num_s_to_str(sent_num) +"\t"+ col_s_to_str(rec_color) + num_s_to_str(rec_num) + "\n"
 	
 	return eav_present
 	
@@ -274,8 +290,10 @@ func rand_num():
 func _on_present_pressed():
 	if eav_pres:
 		print("Correct!")
+		correct_count += 1
 	else:
 		print("Incorrect")
+		correct_count = 0
 	
 	eav_pres = _generate_data();
 
@@ -283,7 +301,46 @@ func _on_present_pressed():
 func _on_absent_pressed():
 	if not eav_pres:
 		print("Correct!")
+		correct_count += 1
 	else:
 		print("Incorrect")
+		correct_count = 0
 	
 	eav_pres = _generate_data();
+
+
+enum PROMPT {
+	INST,
+	INTRO_EVE,
+	PRAC,
+	QUIZ_PREFACE,
+	QUIZ,
+	CONGRATS
+}
+
+var prompt = PROMPT.INST;
+
+func _on_next_btn_pressed():
+	
+	if prompt == PROMPT.INST:
+		prompt = PROMPT.INTRO_EVE
+		prompt_text.text = json.result["1"]
+	elif prompt == PROMPT.INTRO_EVE:
+		prompt = PROMPT.PRAC
+		prompt_text.text = json.result["2"]
+		practice_panel.show()
+	elif prompt == PROMPT.PRAC:
+		prompt = PROMPT.QUIZ_PREFACE
+		prompt_text.text = json.result["3"]
+	elif prompt == PROMPT.QUIZ_PREFACE:
+		prompt = PROMPT.QUIZ
+		prompt_text.text = json.result["4"]
+		practice_panel.hide()
+		dataset_panel.show()
+		next_btn.disabled = true
+	elif prompt == PROMPT.QUIZ and correct_count >= 5:
+		prompt = PROMPT.CONGRATS
+		prompt_text.text = json.result["5"]
+		dataset_panel.hide()
+	elif prompt == PROMPT.CONGRATS:
+		var _f = get_tree().change_scene("res://main_menu/main_menu.tscn")
