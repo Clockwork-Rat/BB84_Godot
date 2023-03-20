@@ -10,8 +10,13 @@ onready var rec_blue  = $practice_panel/rec_blue
 onready var rec_red   = $practice_panel/rec_red
 onready var eav_result= $practice_panel/eav_result
 onready var rec_result= $practice_panel/rec_result
+onready var practice_panel = $practice_panel
+onready var dataset_panel = $dataset
+onready var dataset_txt = $dataset/generated_dataset
 
 onready var nb_text = $notebook_panel/notebook_text
+onready var nb = $notebook_panel
+var nb_shown = false
 
 var escape_menu = preload("res://esc_menu/esc_menu.tscn").instance()
 var esc_menu_active = false
@@ -50,11 +55,15 @@ var send_num_sel = false
 var eav_color_sel = false
 var rec_color_sel = false
 
+var eav_pres = false
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	nb.hide();
+	eav_pres = _generate_data();
 
+	pass # Replace with function body.
 
 func _process(_delta):
 	if send_color_sel and send_num_sel and eav_color_sel and rec_color_sel:
@@ -199,3 +208,82 @@ func _on_send_red_pressed():
 
 func _on_send_blue_pressed():
 	send_color_selected(COLOR.BLUE)
+
+func _on_notebook_btn_pressed():
+	
+	nb_shown = !nb_shown
+	if nb_shown:
+		practice_panel.rect_position.x = 254
+		nb.show()
+	else:
+		practice_panel.rect_position.x = 164
+		nb.hide()
+		
+func _generate_data():
+	var sent_num = NUM.NONE
+	var sent_color = COLOR.NONE
+	var eav_num = NUM.NONE
+	var eav_color = NUM.NONE
+	var rec_num = NUM.NONE
+	var rec_color = COLOR.NONE
+	
+	var eav_present = false
+
+	dataset_txt.text = ""
+	
+	randomize()
+	eav_present = rand_gen()
+	
+	for _i in range(20):
+		if eav_present:
+			sent_color = rand_color()
+			eav_color = rand_color()
+			rec_color = rand_color()
+			sent_num = rand_num()
+
+			eav_num = sent_num if sent_color == eav_color else rand_num()
+			rec_num = eav_num if eav_color == rec_color else rand_gen()
+		else:
+			sent_color = rand_color()
+			rec_color = rand_color()
+			sent_num = rand_num()
+
+			rec_num = sent_num if sent_color == rec_color else rand_gen()
+		
+		dataset_txt.text += col_s_to_str(sent_color) + num_s_to_str(sent_num) + col_s_to_str(rec_color) + num_s_to_str(rec_num) + "\n"
+	
+	return eav_present
+	
+func rand_gen():
+	randomize()
+	return floor(rand_range(0, 2)) == 0
+	
+func rand_color():
+	if rand_gen():
+		return COLOR.RED
+	else:
+		return COLOR.BLUE
+		
+func rand_num():
+	if rand_gen():
+		return NUM.ZERO
+	else:
+		return NUM.ONE
+
+
+func _on_present_pressed():
+	if eav_pres:
+		print("Correct!")
+	else:
+		print("Incorrect")
+	
+	eav_pres = _generate_data();
+
+
+func _on_absent_pressed():
+	if not eav_pres:
+		print("Correct!")
+	else:
+		print("Incorrect")
+	
+	eav_pres = _generate_data();
