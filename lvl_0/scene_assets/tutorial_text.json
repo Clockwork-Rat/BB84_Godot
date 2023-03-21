@@ -3,7 +3,7 @@
     "wt-1" : "Here is the notebook. This stores a log of what you've done. Just click this icon and you'll see it appear and click it again to put it away.",
     "wt-2" : "This is the selection panel, you'll be able to run simulations by clicking the buttons on it",
     "wt-3" : "This area is where you will choose a colors for the \"sender\", you are able to choose red or blue",
-    "wt-4" : "This is the area where you will choose a number for the \"sender\". After you have chosen both, this is the sender portion of the simulation complete.",
+    "wt-4" : "This is the area where you will choose a number for the \"sender\". After you have chosen both, the sender portion of the current run has now been completed",
     "wt-5" : "This is the area where you will choose a color for the \"reciever\" portion, you have the same options as the sender: blue and red, this time select red",
     "wt-6" : "And finally, this is the reset button which resets the experiment and allows you to choose your colors and numbers again for all sections. This is also where the notebook comes in handy, all runs will be stored here!",
     "wt-7" : "You will not be able to go back to this point, press the next button when you think you're ready to jump into running simulations!",
