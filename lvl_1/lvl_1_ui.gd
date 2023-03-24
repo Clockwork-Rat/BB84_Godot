@@ -81,6 +81,7 @@ var keep_idx_0 = []
 var number_order = []
 var number_order_idx = 0;
 
+var total_selected = 0;
 var matching_colors_t = 0
 
 func _ready():
@@ -184,11 +185,12 @@ func _on_next_btn_pressed():
 		curr_state = PROMPT_STATE.EXIT
 		
 	elif curr_state == PROMPT_STATE.EXIT:
-		get_tree().change_scene("res://main_menu/main_menu.tscn")
+		var _f = get_tree().change_scene("res://main_menu/main_menu.tscn")
 	else:
 		pass
 
 func _on_blue_button_pressed():
+	total_selected += 1;
 	randomize()
 	rec_colors_t.append(COLOR_STATE.BLUE)
 	var tmp_bit = floor(rand_range(0, 2))
@@ -205,9 +207,10 @@ func _on_blue_button_pressed():
 		rec_bit_t.append(floor(rand_range(0, 2)))
 		send_colors_t.append(COLOR_STATE.GREEN)
 		
-	basis_number.text = String(matching_colors_t)
+	basis_number.text = String(total_selected)
 
 func _on_green_button_pressed():
+	total_selected += 1;
 	randomize()
 	rec_colors_t.append(COLOR_STATE.GREEN)
 	var tmp_bit = floor(rand_range(0, 2))
@@ -224,7 +227,7 @@ func _on_green_button_pressed():
 		rec_bit_t.append(tmp_bit)
 		matching_colors_t += 1
 		
-	basis_number.text = String(matching_colors_t)
+	basis_number.text = String(total_selected)
 		
 func _on_notebook_btn_pressed():
 	if nb_active:

@@ -15,6 +15,8 @@ onready var dataset_panel = $dataset
 onready var dataset_txt = $dataset/generated_dataset
 onready var prompt_text = $prompt_panel/prompt_text
 onready var next_btn = $prompt_panel/next_btn
+onready var s_panel = $s_panel;
+onready var num_correct = $s_panel/num_correct
 
 onready var nb_text = $notebook_panel/notebook_text
 onready var nb = $notebook_panel
@@ -69,6 +71,7 @@ var json : JSONParseResult
 func _ready():
 	nb.hide()
 	dataset_panel.hide()
+	s_panel.hide()
 	eav_pres = _generate_data()
 
 	var file_load = File.new()
@@ -242,6 +245,8 @@ func _generate_data():
 	var eav_color = NUM.NONE
 	var rec_num = NUM.NONE
 	var rec_color = COLOR.NONE
+
+	var manual_flip = false
 	
 	var eav_present = false
 
@@ -259,6 +264,10 @@ func _generate_data():
 
 			eav_num = sent_num if sent_color == eav_color else rand_num()
 			rec_num = eav_num if eav_color == rec_color else rand_gen()
+
+			if not manual_flip and sent_color == rec_color:
+				sent_num = NUM.ZERO if sent_num == NUM.ONE else NUM.ONE
+				manual_flip = true
 		else:
 			sent_color = rand_color()
 			rec_color = rand_color()
@@ -291,10 +300,13 @@ func _on_present_pressed():
 	if eav_pres:
 		print("Correct!")
 		correct_count += 1
+		if correct_count >= 5:
+			_on_next_btn_pressed()
 	else:
 		print("Incorrect")
 		correct_count = 0
 	
+	num_correct.text = String(correct_count)
 	eav_pres = _generate_data();
 
 
@@ -302,10 +314,13 @@ func _on_absent_pressed():
 	if not eav_pres:
 		print("Correct!")
 		correct_count += 1
+		if correct_count >= 5:
+			_on_next_btn_pressed()
 	else:
 		print("Incorrect")
 		correct_count = 0
 	
+	num_correct.text = String(correct_count)
 	eav_pres = _generate_data();
 
 
@@ -337,10 +352,12 @@ func _on_next_btn_pressed():
 		prompt_text.text = json.result["4"]
 		practice_panel.hide()
 		dataset_panel.show()
+		s_panel.show()
 		next_btn.disabled = true
 	elif prompt == PROMPT.QUIZ and correct_count >= 5:
 		prompt = PROMPT.CONGRATS
 		prompt_text.text = json.result["5"]
 		dataset_panel.hide()
+		s_panel.hide()
 	elif prompt == PROMPT.CONGRATS:
 		var _f = get_tree().change_scene("res://main_menu/main_menu.tscn")
