@@ -149,10 +149,24 @@ func ready_all():
 	eav_result.text = ""
 	rec_result.text = ""
 
+	send_blue.show()
+	send_zero.show()
+	send_one.show()
+	eav_blue.show()
+	eav_red.show()
+	rec_blue.show()
+	rec_red.show()
+	eav_result.show()
+	rec_result.show()
+	send_red.show()
+
+
 func rec_color_selected(col: int):
 	if col == COLOR.BLUE:
 		rec_color_state = COLOR.BLUE
+		rec_red.hide()
 	else:
+		rec_blue.hide()
 		rec_color_sel = COLOR.RED
 
 	rec_color_sel = true
@@ -163,7 +177,9 @@ func rec_color_selected(col: int):
 func eav_color_selected(col: int):
 	if col == COLOR.BLUE:
 		eav_color_state = COLOR.BLUE
+		eav_red.hide()
 	else:
+		eav_blue.hide()
 		eav_color_sel = COLOR.RED
 
 	eav_color_sel = true
@@ -173,8 +189,10 @@ func eav_color_selected(col: int):
 
 func send_color_selected(col: int):
 	if col == COLOR.BLUE:
+		send_red.hide()
 		send_color_state = COLOR.BLUE
 	else:
+		send_blue.hide()
 		send_color_sel = COLOR.RED
 
 	send_color_sel = true
@@ -184,8 +202,10 @@ func send_color_selected(col: int):
 
 func send_num_selected(col: int):
 	if col == NUM.ZERO:
+		send_one.hide()
 		send_num_state = NUM.ZERO
 	else:
+		send_zero.hide()
 		send_num_sel = NUM.ONE
 
 	send_num_sel = true

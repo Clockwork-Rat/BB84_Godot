@@ -13,6 +13,7 @@ onready var hl_select_panel = $hl_select_panel
 onready var hl_reset = $familiarize_panel/hl_reset
 onready var next_button = $prompt_panel/next_button
 onready var back_button = $prompt_panel/back_button
+onready var hl_result = $familiarize_panel/hl_result
 
 var filepath = "res://lvl_0/scene_assets/tutorial_text.json"
 var json : JSONParseResult
@@ -146,10 +147,12 @@ func _on_next_button_pressed():
 	elif current_state == panel_state.U2:
 		current_state = panel_state.U3
 		prompt_text.text = json.result["u-3"]
+		hl_result.show()
 		emit_signal("training_mode_ended")
 		next_button.disabled = false
 
 	elif current_state == panel_state.U3:
+		hl_result.hide()
 		current_state = panel_state.FIRST_PANEL_STATE
 		prompt_text.text = json.result["1"]
 

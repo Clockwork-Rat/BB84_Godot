@@ -32,19 +32,19 @@ anchor_top = 0.825
 anchor_right = 0.754
 anchor_bottom = 0.993
 margin_left = 0.095993
-margin_top = -3.05176e-05
+margin_top = -44.0
 margin_right = -0.0960083
-margin_bottom = 0.199951
+margin_bottom = 0.200012
 
 [node name="main_text" type="RichTextLabel" parent="prompt_panel"]
 anchor_left = 0.065
 anchor_top = 0.069
 anchor_right = 0.938
-anchor_bottom = 0.871
-margin_left = 0.200012
-margin_top = 0.0309992
+anchor_bottom = 0.699
+margin_left = 0.200001
+margin_top = -0.108
 margin_right = 0.23999
-margin_bottom = 0.0289917
+margin_bottom = -0.0320129
 text = "In this Level, you will be learning how sending informaiton between two people works in the BB84 encryption protocol. During part one, try to figure out the pattern of the result."
 
 [node name="next_button" type="Button" parent="prompt_panel"]
@@ -52,10 +52,10 @@ anchor_left = 0.902
 anchor_top = 0.723
 anchor_right = 0.981
 anchor_bottom = 0.945
-margin_left = -0.0400696
-margin_top = -0.0229492
-margin_right = 0.879974
-margin_bottom = -0.00294495
+margin_left = -0.0400085
+margin_top = 9.165
+margin_right = 0.880005
+margin_bottom = -0.0249939
 text = "Next"
 
 [node name="back_button" type="Button" parent="prompt_panel"]
@@ -63,10 +63,10 @@ anchor_left = 0.021
 anchor_top = 0.723
 anchor_right = 0.121
 anchor_bottom = 0.941
-margin_left = 0.079999
-margin_top = -0.0229797
-margin_right = 0.079998
-margin_bottom = -0.0409775
+margin_left = 0.0799999
+margin_top = 8.165
+margin_right = 0.0800018
+margin_bottom = -0.444992
 text = "Back"
 
 [node name="speaker" type="Button" parent="prompt_panel"]
@@ -74,10 +74,10 @@ anchor_left = 0.842
 anchor_top = 0.723
 anchor_right = 0.885
 anchor_bottom = 0.941
-margin_left = 0.159973
-margin_top = -0.0229797
-margin_right = -0.200012
-margin_bottom = -0.0409775
+margin_left = 0.160004
+margin_top = 10.165
+margin_right = -0.199982
+margin_bottom = -0.444992
 
 [node name="TextureRect" type="TextureRect" parent="prompt_panel/speaker"]
 anchor_left = 0.091
