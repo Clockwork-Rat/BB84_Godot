@@ -167,23 +167,24 @@ func _on_reset_btn_pressed():
 	result.text = ""
 
 func _on_rec_blue_pressed():
-	if not walkthrough:
-		rec_blue.disabled = true
-		rec_green.disabled = true
-		rec_color_state = COLOR_STATE.BLUE
-		rec_color_selected = true
-		rec_green.hide()
-
-func _on_rec_green_pressed():
 	rec_blue.disabled = true
 	rec_green.disabled = true
-	rec_color_state = COLOR_STATE.GREEN
+	rec_color_state = COLOR_STATE.BLUE
 	rec_color_selected = true
-	rec_blue.hide()
+	rec_green.hide()
 
 	if walkthrough:
 		reset.disabled = false
 		emit_signal("pressed_correct_button")
+
+func _on_rec_green_pressed():
+		
+	if not walkthrough:
+		rec_blue.disabled = true
+		rec_green.disabled = true
+		rec_color_state = COLOR_STATE.GREEN
+		rec_color_selected = true
+		rec_blue.hide()
 
 
 func _on_Control_training_mode_ended():

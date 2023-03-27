@@ -67,22 +67,29 @@ enum COLOR_STATE {
 	NONE
 }
 
+enum NUM {
+	ZERO,
+	ONE,
+	NONE
+}
+
 var flash_error = false
 var flash_success = false
 
 var flash_count = 0
 
-var rec_colors_t = []
-var send_colors_t = []
-var sent_bit_t = []
-var rec_bit_t = []
+var rec_colors = []
+var send_colors = []
+var sent_bit = []
+var rec_bit = []
 
-var keep_idx_0 = []
-var number_order = []
-var number_order_idx = 0;
+var code = []
 
-var total_selected = 0;
+var select_idx = 0
 var matching_colors_t = 0
+#index for keep reject
+var kri = 0
+var kr_in_prog = false
 
 func _ready():
 	var file_load = File.new()
@@ -109,29 +116,23 @@ func _process(_delta):
 	if flash_success:
 		flash_color(false, _delta)
 	
-	if matching_colors_t >= 5:
+	if matching_colors_t >= 5 && select_idx > 9:
 		matching_colors_t = 0
 		prompt_text.text = json.result["3"]
 		select_panel.hide()
 		next_button.disabled = false
 		curr_state = PROMPT_STATE.INTRO_4
 		
-		for i in range(rec_colors_t.size()):
-			notebook_text.text += (String(i) + ": ")
+		for i in range(rec_colors.size()):
+			notebook_text.text += ("T" + String(i) + ": ")
 			
-			if send_colors_t[i] == COLOR_STATE.BLUE:
-				notebook_text.text += "blue "
-			else:
-				notebook_text.text += "red "
+			notebook_text.text += col_to_str(send_colors[i])
 				
 			#notebook_text.text += (String(sent_bit_t[i]) + " ")
 			
-			if rec_colors_t[i] == COLOR_STATE.BLUE:
-				notebook_text.text += "blue "
-			else:
-				notebook_text.text += "red "
+			notebook_text.text += col_to_str(rec_colors[i])
 				
-			notebook_text.text += (String(rec_bit_t[i]) + "\n")
+			notebook_text.text += (num_to_str(rec_bit[i]) + "\n")
 
 func _on_next_btn_pressed():
 	if curr_state == PROMPT_STATE.INTRO_1:
@@ -150,35 +151,29 @@ func _on_next_btn_pressed():
 		prompt_text.text = json.result["5"]
 		curr_state = PROMPT_STATE.INTRO_6
 		keep_reject.show()
-		
-		if send_colors_t[0] == COLOR_STATE.BLUE:
+		kr_in_prog = true
+
+		if send_colors[0] == COLOR_STATE.BLUE:
 			send_color.texture = blue_sprite
 		else:
 			send_color.texture = green_sprite
-			
-		if rec_colors_t[0] == COLOR_STATE.BLUE:
-			rec_color.texture = blue_sprite
-		else:
+
+		if rec_colors[0] == COLOR_STATE.GREEN:
 			rec_color.texture = green_sprite
-			
-	elif curr_state == PROMPT_STATE.INTRO_6:
+		else:
+			rec_color.texture = blue_sprite
+
+		next_button.disabled = true
+	
+	elif curr_state == PROMPT_STATE.INTRO_6 && not kr_in_prog:
 		prompt_text.text = json.result["6"]
 		curr_state = PROMPT_STATE.INTRO_7
 		keypad.show()
 		print("matching idx")
 		notebook_text.text += json.result["nbi"]
-		for i in keep_idx_0:
+		for i in code:
 			print(i)
-		while len(keep_idx_0) > 0 :
-			randomize()
-			print(String(len(keep_idx_0)))
-			var idx = floor(rand_range(0, len(keep_idx_0)))
-			notebook_text.text += (String(keep_idx_0[idx]) + "\n")
-			var real_idx = keep_idx_0[idx]
-			number_order.push_back(rec_bit_t[real_idx])
-			keep_idx_0.remove(idx)
-		for num in number_order:
-			print(String(num))
+			notebook_text.text += String(i) + "\n"
 		
 	elif curr_state == PROMPT_STATE.INTRO_7 && passcode_entered:
 		prompt_text.text = json.result["7"]
@@ -190,44 +185,56 @@ func _on_next_btn_pressed():
 		pass
 
 func _on_blue_button_pressed():
-	total_selected += 1;
-	randomize()
-	rec_colors_t.append(COLOR_STATE.BLUE)
-	var tmp_bit = floor(rand_range(0, 2))
-	sent_bit_t.append(tmp_bit)
-	
-	randomize()
-	var tmp = floor(rand_range(0, 2))
-	if tmp == 0:
-		send_colors_t.append(COLOR_STATE.BLUE)
-		rec_bit_t.append(tmp_bit)
-		matching_colors_t += 1
-	else:
-		randomize()
-		rec_bit_t.append(floor(rand_range(0, 2)))
-		send_colors_t.append(COLOR_STATE.GREEN)
-		
-	basis_number.text = String(total_selected)
+	_on_color_select(COLOR_STATE.BLUE)
 
 func _on_green_button_pressed():
-	total_selected += 1;
-	randomize()
-	rec_colors_t.append(COLOR_STATE.GREEN)
-	var tmp_bit = floor(rand_range(0, 2))
-	sent_bit_t.append(tmp_bit)
-	
-	randomize()
-	var tmp = floor(rand_range(0, 2))
-	if tmp == 0:
-		randomize()
-		rec_bit_t.append(floor(rand_range(0, 2)))
-		send_colors_t.append(COLOR_STATE.BLUE)
-	else:
-		send_colors_t.append(COLOR_STATE.GREEN)
-		rec_bit_t.append(tmp_bit)
+	_on_color_select(COLOR_STATE.GREEN)
+
+func _on_color_select(rec_col: int):
+	var sent_col = rand_color()
+	var sent_num = rand_num()
+	var rec_num = NUM.NONE
+
+	if(rec_col == sent_col):
+		rec_num = sent_num
+		code.append(select_idx)
 		matching_colors_t += 1
-		
-	basis_number.text = String(total_selected)
+	else:
+		rec_num = rand_num()
+	
+	select_idx+=1
+	basis_number.text = num_to_str(rec_num)
+
+	send_colors.append(sent_col)
+	sent_bit.append(sent_num)
+	rec_colors.append(rec_col)
+	rec_bit.append(rec_num)
+
+func rand_num():
+	randomize()
+	if floor(rand_range(0, 2)) == 0:
+		return NUM.ZERO 
+	else:
+		return NUM.ONE
+
+func rand_color():
+	randomize()
+	if floor(rand_range(0, 2)) == 0:
+		return COLOR_STATE.BLUE
+	else:
+		return COLOR_STATE.GREEN
+
+func col_to_str(col: int):
+	if col == COLOR_STATE.BLUE:
+		return "blue "
+	else:
+		return "red "
+
+func num_to_str(num: int):
+	if num == NUM.ZERO:
+		return "0 "
+	else:
+		return "1 "
 		
 func _on_notebook_btn_pressed():
 	if nb_active:
@@ -245,66 +252,67 @@ func _on_reject_btn_pressed():
 		
 func keep_reject_pressed(reject: bool):
 	disable_timer = disable_timer_max
-	if basis_idx < len(send_colors_t):
-		
-		if ((send_color.texture == rec_color.texture and not reject) 
-				or (send_color.texture != rec_color.texture and reject)):
-			print("correct")
-			
-			if not reject:
-				keep_idx_0.append(basis_idx)
-			
-			if basis_idx < len(send_colors_t):
-				if send_colors_t[basis_idx] == COLOR_STATE.BLUE:
-					send_color.texture = blue_sprite
-				else:
-					send_color.texture = green_sprite
-		
-				if rec_colors_t[basis_idx] == COLOR_STATE.BLUE:
-					rec_color.texture = blue_sprite
-				else:
-					rec_color.texture = green_sprite
-				prompt_text.text = "Yes! That's Correct"
-				
-			basis_idx += 1
 
-			if basis_idx == (len(send_colors_t) - 1):
-				keep_reject.hide()
+	if reject:
+		if send_colors[kri] == rec_colors[kri]:
+			prompt_text.text = "That was incorrect, remember the tutorial, how do you know the numbers will match?"
 		else:
-			print("wrong")
-			prompt_text.text = "Try Again!"
+			prompt_text.text = "Great job!"
+	
 	else:
+		if not send_colors[kri] == rec_colors[kri]:
+			prompt_text.text = "That was incorrect, remember the tutorial, how do you know the numbers will match?"
+		else:
+			prompt_text.text = "Great job!"
+
+	kri += 1
+	if kri == len(send_colors):
+		kr_in_prog = false
+		_on_next_btn_pressed()
+		next_button.disabled = false
 		keep_reject.hide()
+		return
+
+	if send_colors[kri] == COLOR_STATE.BLUE:
+		send_color.texture = blue_sprite
+	else:
+		send_color.texture = green_sprite
+	
+	if rec_colors[kri] == COLOR_STATE.BLUE:
+		rec_color.texture = blue_sprite
+	else:
+		rec_color.texture = green_sprite
+	
+	
 		
 func _on_in_zero_btn_pressed():
-	on_keypad_button_pressed(0)
+	on_keypad_button_pressed(NUM.ZERO)
 
 func _on_in_one_btn_pressed():
-	on_keypad_button_pressed(1)
+	on_keypad_button_pressed(NUM.ONE)
 
+var kpi = 0
 func on_keypad_button_pressed(code_num: int):
-	if number_order_idx < len(number_order) or true:
-	
-		if number_order[number_order_idx] == code_num:
-			number_order_idx += 1
-			print("yes")
-		else:
-			number_order_idx = 0
-			flash_error = true
-			keypad_one.disabled = true
-			keypad_zero.disabled = true
-			print("no")
+
+	if rec_bit[code[kpi]] == code_num:
+		kpi += 1
+		print("correct")
+	else:
+		flash_error = true
+		keypad_one.disabled = true
+		keypad_zero.disabled = true
+		print("no")
+		kpi = 0
 			
 	
 		
-	if number_order_idx >= len(number_order):
+	if kpi >= len(code):
 		passcode_entered = true
 		keypad_one.disabled = true
 		keypad_zero.disabled = true
 		flash_success = true
 		_on_next_btn_pressed()
 		
-
 var total_flash = 0.0
 var flashing_color = true
 var flash_cycle = 0

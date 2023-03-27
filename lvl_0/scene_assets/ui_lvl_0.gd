@@ -64,6 +64,9 @@ func _unhandled_input(event):
 			else:
 				remove_child(escape_menu)
 				esc_menu_active = false
+func reload():
+	get_tree().reload_current_scene()
+
 
 func _ready():
 	var file_load = File.new()
@@ -73,6 +76,7 @@ func _ready():
 	quiz_panel.hide()
 	prompt_text.text = json.result["0"]
 	notebook_panel.hide()
+	escape_menu.connect("reload", self, "reload")
 
 func _on_next_button_pressed():
 	if current_state == panel_state.INTRO_STATE:

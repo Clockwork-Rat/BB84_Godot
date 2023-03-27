@@ -16,6 +16,7 @@ margin_left = -0.40802
 margin_top = 0.199997
 margin_right = 0.359985
 margin_bottom = 0.199982
+rect_pivot_offset = Vector2( 165, 129 )
 
 [node name="quit_button" type="Button" parent="menu_panel"]
 anchor_left = 0.315
@@ -36,7 +37,21 @@ margin_left = -0.160004
 margin_top = 0.0679779
 margin_right = 0.0399475
 margin_bottom = 0.0779724
+rect_pivot_offset = Vector2( 153, 11 )
 text = "Main Menu"
+
+[node name="reset_btn" type="Button" parent="menu_panel"]
+anchor_left = 0.317
+anchor_top = 0.322
+anchor_right = 0.679
+anchor_bottom = 0.477
+margin_left = 0.840027
+margin_top = -0.0760193
+margin_right = 0.0799561
+margin_bottom = -0.06604
+rect_pivot_offset = Vector2( 153, 11 )
+text = "Reset Level"
 
 [connection signal="pressed" from="menu_panel/quit_button" to="." method="_on_quit_button_pressed"]
 [connection signal="pressed" from="menu_panel/main_menu_btn" to="." method="_on_main_menu_btn_pressed"]
+[connection signal="pressed" from="menu_panel/reset_btn" to="." method="_on_reset_btn_pressed"]

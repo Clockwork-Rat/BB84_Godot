@@ -63,7 +63,7 @@ margin_bottom = 0.199982
 anchor_right = 1.0
 anchor_bottom = 0.375
 margin_bottom = -6.0
-text = "Select Your Colors!"
+text = "Select your color as the receiver!"
 align = 1
 valign = 1
 
@@ -103,7 +103,6 @@ align = 1
 valign = 1
 
 [node name="keep_reject" type="Panel" parent="."]
-visible = false
 anchor_left = 0.318
 anchor_top = 0.337
 anchor_right = 0.683
@@ -114,7 +113,7 @@ margin_right = -0.392029
 margin_bottom = 0.199982
 
 [node name="send_color" type="Sprite" parent="keep_reject"]
-position = Vector2( 71.5, 43.5 )
+position = Vector2( 51, 44 )
 scale = Vector2( 1.46875, 1.46875 )
 texture = ExtResource( 5 )
 
@@ -144,6 +143,28 @@ margin_top = 0.0399971
 margin_right = -0.0410461
 margin_bottom = -0.0240021
 text = "Reject"
+
+[node name="sent_lbl" type="Label" parent="keep_reject"]
+anchor_left = 0.078
+anchor_top = 0.045
+anchor_right = 0.196
+anchor_bottom = 0.205
+margin_left = -0.0939732
+margin_top = 0.04
+margin_right = -0.107979
+margin_bottom = -0.0400009
+text = "Sender"
+
+[node name="rec_lbl" type="Label" parent="keep_reject"]
+anchor_left = 0.295
+anchor_top = 0.045
+anchor_right = 0.464
+anchor_bottom = 0.205
+margin_left = -0.0349884
+margin_top = 0.04
+margin_right = -0.071991
+margin_bottom = -0.0400009
+text = "Receiever"
 
 [node name="notebook_btn" type="Button" parent="."]
 anchor_left = 0.012
@@ -180,6 +201,7 @@ margin_right = -0.112015
 margin_bottom = 0.18399
 
 [node name="keypad_panel" type="Panel" parent="."]
+visible = false
 anchor_left = 0.432
 anchor_top = 0.363
 anchor_right = 0.581

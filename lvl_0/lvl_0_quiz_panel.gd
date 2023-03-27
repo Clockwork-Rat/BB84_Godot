@@ -6,6 +6,7 @@ var green_sprite = preload("res://lvl_0/scene_assets/green_sprite.png")
 onready var send_color = $send_color
 onready var rec_color = $rec_color
 onready var send_num = $send_num
+onready var notebook_text = $"../notebook_panel/notebook_text"
 
 enum COLOR_STATE {
 	BLUE_STATE,
@@ -83,9 +84,11 @@ func _ready():
 	set_all()
 
 func _on_zero_btn_pressed():
+	var last_str = "0 wrong "
 	if send_color_state == rec_color_state:
 		if send_number_state == NUMBER_STATE.ZERO_STATE:
 			correct_answers += 1
+			last_str = "0 correct "
 			print("correct")
 		else:
 			correct_answers = 0
@@ -93,6 +96,8 @@ func _on_zero_btn_pressed():
 	else:
 		correct_answers = 0
 		print("wrong")
+	notebook_text.text += col_to_str(send_color_state) + num_to_str(send_number_state) +\
+		col_to_str(rec_color_state) + last_str + String(correct_answers) + "\n"
 	set_all()
 
 func _test_previous( cur_send_color, cur_send_number, cur_rec_color ):
@@ -105,9 +110,11 @@ func _test_previous( cur_send_color, cur_send_number, cur_rec_color ):
 
 
 func _on_one_btn_pressed():
+	var last_str = "1 wrong "
 	if send_color_state == rec_color_state:
 		if send_number_state == NUMBER_STATE.ONE_STATE:
 			correct_answers += 1
+			last_str = "1 correct "
 			print("correct")
 		else:
 			correct_answers = 0
@@ -115,14 +122,31 @@ func _on_one_btn_pressed():
 	else:
 		correct_answers = 0
 		print("wrong")
+	notebook_text.text += col_to_str(send_color_state) + num_to_str(send_number_state) +\
+		col_to_str(rec_color_state) + last_str + String(correct_answers) + "\n"
 	set_all()
-
+	
+func col_to_str(col: int):
+	if col == COLOR_STATE.BLUE_STATE:
+		return "blue "
+	else:
+		return "red "
+	
+func num_to_str(num: int):
+	if num == NUMBER_STATE.ZERO_STATE:
+		return "0 "
+	else:
+		return "1 "
 
 func _on_question_btn_pressed():
+	var last_str = "0/1 wrong "
 	if send_color_state != rec_color_state:
 		correct_answers += 1
+		last_str = "0/1 correct "
 		print("correct")
 	else:
 		correct_answers = 0
 		print("wrong")
+	notebook_text.text += col_to_str(send_color_state) + num_to_str(send_number_state) +\
+		col_to_str(rec_color_state) + last_str + String(correct_answers) + "\n"
 	set_all()

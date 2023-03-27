@@ -4,7 +4,7 @@ extends Control
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
-
+signal reload
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -19,3 +19,8 @@ func _on_quit_button_pressed():
 func _on_main_menu_btn_pressed():
 	get_tree().change_scene("res://main_menu/main_menu.tscn")
 	pass # Replace with function body.
+
+
+func _on_reset_btn_pressed():
+	print("hit")
+	emit_signal("reload")
