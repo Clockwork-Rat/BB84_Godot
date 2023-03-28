@@ -14,10 +14,12 @@ onready var send_color = $keep_reject/send_color
 onready var rec_color = $keep_reject/rec_color
 onready var keep_btn = $keep_reject/keep_btn
 onready var reject_btn = $keep_reject/reject_btn
+onready var transmission_num = $keep_reject/transmission_num
 
 onready var keypad = $keypad_panel
 onready var keypad_zero = $keypad_panel/in_zero_btn
 onready var keypad_one = $keypad_panel/in_one_btn
+onready var entry_num = $keypad_panel/entry_num
 
 onready var blue_sprite  = preload("res://lvl_0/scene_assets/blue_sprite.png")
 onready var green_sprite = preload("res://lvl_0/scene_assets/green_sprite.png")
@@ -122,6 +124,8 @@ func _process(_delta):
 		select_panel.hide()
 		next_button.disabled = false
 		curr_state = PROMPT_STATE.INTRO_4
+
+		notebook_text.text = ""
 		
 		for i in range(rec_colors.size()):
 			notebook_text.text += ("T" + String(i) + ": ")
@@ -171,6 +175,7 @@ func _on_next_btn_pressed():
 		keypad.show()
 		print("matching idx")
 		notebook_text.text += json.result["nbi"]
+		entry_num.text = "T" + String(code[0])
 		for i in code:
 			print(i)
 			notebook_text.text += String(i) + "\n"
@@ -201,6 +206,9 @@ func _on_color_select(rec_col: int):
 		matching_colors_t += 1
 	else:
 		rec_num = rand_num()
+
+	notebook_text.text += "T" + String(select_idx) + ": " + \
+		col_to_str(rec_col) + num_to_str(rec_num) + "\n"
 	
 	select_idx+=1
 	basis_number.text = num_to_str(rec_num)
@@ -272,7 +280,8 @@ func keep_reject_pressed(reject: bool):
 		next_button.disabled = false
 		keep_reject.hide()
 		return
-
+	
+	transmission_num.text = "T" + String(kri)
 	if send_colors[kri] == COLOR_STATE.BLUE:
 		send_color.texture = blue_sprite
 	else:
@@ -303,8 +312,6 @@ func on_keypad_button_pressed(code_num: int):
 		keypad_zero.disabled = true
 		print("no")
 		kpi = 0
-			
-	
 		
 	if kpi >= len(code):
 		passcode_entered = true
@@ -312,6 +319,9 @@ func on_keypad_button_pressed(code_num: int):
 		keypad_zero.disabled = true
 		flash_success = true
 		_on_next_btn_pressed()
+		return
+
+	entry_num.text = "T" + String(code[kpi])
 		
 var total_flash = 0.0
 var flashing_color = true

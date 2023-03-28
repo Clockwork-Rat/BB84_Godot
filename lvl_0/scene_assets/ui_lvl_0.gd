@@ -65,6 +65,7 @@ func _unhandled_input(event):
 			else:
 				remove_child(escape_menu)
 				esc_menu_active = false
+
 func reload():
 	get_tree().reload_current_scene()
 
