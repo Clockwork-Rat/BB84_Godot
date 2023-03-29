@@ -1,11 +1,11 @@
 {
-    "0" : "In this level you will apply what you learned in the tutorial. You will be the reciever from last round, and while you are chosing your color. You will not be able to see any aspect of what the sender is sending",
-    "1" : "For each transmission, you will pick a color and see what number you recieved.",
-    "2" : "You and the sender can now start picking colors.",
-    "3" : "Okay, that's enough for now! The sender also spent their time choosing some numbers to send, let's see what each of you sent! Open your journal to take a look.",
-    "4" : "In your notebook you have the colors that the sender sent their numbers in, as well as your own colors, and by your colors is the number you received. Some of the information that was sent is useful while some isn't.",
-    "5" : "Keep the tutorial in mind! Which nubers do you know are the same as the ones the sender sent? Use the Keep and Reject buttons to indicate what information is useful",
+    "0" : "In this level you will apply what you learned in the tutorial. You will now play only the role of the receiver. The role of the sender will be played be the computer. You will not be able to see any of the sender's selections",
+    "1" : "For each transmission, you will pick a color and then see what number you received.",
+    "2" : "You can now start picking colors. Independent of your selections, the computer will make selections for the sender",
+    "3" : "Okay, that's enough for now! The sender also spent their time choosing colors and numbers, let's see what each of you selected! Open your journal to take a look.",
+    "4" : "In your notebook you can see the colors that the sender selected and the numbers they send, as well as your own color selections. Behind your colors you can also see the number you received. Some of the information that was sent is useful while some isn't.",
+    "5" : "Keep the tutorial in mind! Which nubers do you know are the same as the ones the sender sent? Use the Keep and Drop buttons to indicate what information is useful",
     "6" : "Great Job! Now you'll use the information sent between you two to unlock this keypad. The code your partner sent is written in your notebook",
     "7" : "Fantastic! You were able to put the correct code into the keypad! In the next level, you'll see a model of how this may be done in the real world.",
-    "nbi" : "The code is the numbers you received from the following bases:\n"
+    "nbi" : "The code is made up of the numbers you received from the following bases:\n"
 }

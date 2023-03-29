@@ -103,7 +103,6 @@ align = 1
 valign = 1
 
 [node name="keep_reject" type="Panel" parent="."]
-visible = false
 anchor_left = 0.306
 anchor_top = 0.337
 anchor_right = 0.683
@@ -143,7 +142,7 @@ margin_left = 0.162964
 margin_top = 0.0399971
 margin_right = -0.0410461
 margin_bottom = -0.0240021
-text = "Reject"
+text = "Drop"
 
 [node name="sent_lbl" type="Label" parent="keep_reject"]
 anchor_left = 0.078

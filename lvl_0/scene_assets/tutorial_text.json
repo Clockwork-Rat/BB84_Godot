@@ -1,18 +1,19 @@
 {
     "wt-0" : "We will start with an overview of the controls! First, all the buttons that need to be pressed will be pointed out and then you will do a guided practice run.",
-    "wt-1" : "Here is the NOTEBOOK. This stores a log of the information you have done. Click this icon to either displayor hidethe information saved in the notebook.",
-    "wt-2" : "This is the selection panel, you'll be able to run simulations by clicking the buttons on it",
-    "wt-3" : "This area is where you will choose a color for message the \"sender\" sends. You are able to choose red or blue",
-    "wt-4" : "This is the area where you will choose a number for the message the \"sender\" sends. After you have chosen both number and color, the sender portion has now been completed",
-    "wt-5" : "This is the location where you will choose a color for the \"reciever\", you have the same options as the sender: blue and red, this time select red",
-    "wt-6" : "Finally, this is the reset button which resets the settings and allows you to choose new colors and numbers for the next message. This is also where the notebook comes in handy, all messages will be stored here!",
+    "wt-1" : "Here is the NOTEBOOK. This stores a log of everything that has happened. Click this icon to either display or hide the information saved in the notebook.",
+    "wt-2" : "This is the selection panel. By clicking the buttons in this panel, you will control how the \"sender\" sends a message and how the \"receiver\" receives it.
+",
+    "wt-3" : "In this area you will choose a color for the message the \"sender\" sends. You are able to choose either RED or BLUE",
+    "wt-4" : "In this area you will choose a number for the message the \"sender\" sends. After you have chosen both number and color, the sender's part has been completed",
+    "wt-5" : "In this area you will choose a color for the \"receiver\", you have the same options as before for the \"sender\": blue and red",
+    "wt-6" : "Finally, this is the reset button which resets the settings and allows you to choose new colors and numbers for the next message. This is also where the notebook comes in handy, the information for all messages will be stored here!",
     "wt-7" : "You will not be able to go back to this point, press the next button when you are comfortable with the controls and ready to send your first messages!",
     "u-0" : "For your first message, I will guide your through the selections.\n\nWe'll start by selecting the BLUE button for the sender,go ahead and press it now!",
     "u-1" : "Great! Next, select the zero button",
     "u-2" : "Okay, now it is time for your selection for the \"receiver\", press the blue button in the receiver section",
-    "u-3" : "Congratulations, the result of your first transmission can be seen here. As you can see, the sender sent a zero and the receiver received a zero!\nYou can see everything in your notebook\nGo ahead and open the notebook and take a look!",
+    "u-3" : "Congratulations, the result of your first message can be seen here. As you can see, the sender sent a zero and the receiver received a zero!\nYou can see everything in your notebook\nGo ahead and open the notebook and take a look!",
     "0" : "In this level, you will be learning how to send secure messages using the BB84 quantum key distribution protocol. \nUse the NEXT and BACK buttons to navigate.",
-    "1" : "Continue to send messages to see if you understand how your choices for the sender and the receiver affect the message the sender receives. Remember to press the RESET button whenever you are ready to send another message.\nYou will not be able to move forward until the quiz is passed, but feel free to reset the level at any time by pressing escape and reset.",
-    "2" : "Try this quiz! Your goal is to predict whether the receiver will receive a ZERO or ONE gieven the selections shown, if you can't be sure, the 0/1 answer is correct. To pass you will need to answer five questions correctly in a row, and your progress will be tracked in the notebook",
-    "3" : "Congratulations! You passed! \nFeel free to replay this level to increase your comfortability. \nYou can access this level again on the main menu, but now you understand the mechanism behind the BB84 protocol. If the sender and reciever both use the same color, the transmission will be the same, otherwise it is only the same about half of the time"
+    "1" : "Continue to send messages to see if you understand how your choices for the sender and the receiver affect the message the sender receives. Remember to press the RESET button whenever you are ready to send another message.\nYou will not be able to move forward until you passes the quiz, but feel free to reset the level at any time by pressing escape and reset.",
+    "2" : "Try this quiz! Your goal is to predict whether the receiver will receive a ZERO or ONE given the selections shown, if you can't be sure, the 0/1 answer is the correct choice. To pass you will need to answer five questions correctly in a row, and your progress will be tracked in the notebook",
+    "3" : "Congratulations! You passed! \nFeel free to replay this level to increase your comfortability. \nYou can access this level again on the main menu, but now you understand the mechanism behind the BB84 protocol. If the sender and receiver both use the same color, the receiver receives the CORRECT message, otherwise it is correct only about half of the time"
 }
