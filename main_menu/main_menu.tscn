@@ -59,7 +59,6 @@ theme = ExtResource( 4 )
 text = "Level 2"
 
 [node name="btn_lvl_3" type="Button" parent="."]
-visible = false
 anchor_left = 0.033
 anchor_top = 0.507
 anchor_right = 0.236
