@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://lvl_0/scene_assets/notbook_icon.png" type="Texture" id=1]
 [ext_resource path="res://lvl_3/lvl_3_ui.gd" type="Script" id=2]
+[ext_resource path="res://ui_assets/themes/menu_btn.tres" type="Theme" id=3]
 
 [node name="Control" type="Control"]
 anchor_right = 1.0
@@ -103,11 +104,11 @@ text = "Generate"
 [node name="key_txt" type="RichTextLabel" parent="terminal"]
 anchor_left = 0.039
 anchor_top = 0.613
-anchor_right = 0.98
+anchor_right = 0.494
 anchor_bottom = 0.972
 margin_left = -0.255001
-margin_top = 0.133987
-margin_right = -0.100037
+margin_top = 0.134003
+margin_right = -0.230011
 margin_bottom = -0.104004
 
 [node name="msg_txt" type="TextEdit" parent="terminal"]
@@ -120,4 +121,102 @@ margin_top = 0.0319977
 margin_right = -0.0100098
 margin_bottom = -0.026001
 
+[node name="send_btn" type="Button" parent="terminal"]
+anchor_left = 0.266
+anchor_top = 0.521
+anchor_right = 0.484
+anchor_bottom = 0.592
+margin_left = 0.0299988
+margin_top = 0.0779877
+margin_right = 0.219971
+margin_bottom = 0.0559998
+text = "Send Sequence"
+
+[node name="encrypted_message" type="Panel" parent="terminal"]
+margin_left = 270.0
+margin_top = 173.0
+margin_right = 535.0
+margin_bottom = 273.0
+theme = ExtResource( 3 )
+
+[node name="RichTextLabel" type="RichTextLabel" parent="terminal/encrypted_message"]
+anchor_right = 1.0
+anchor_bottom = 0.98
+margin_right = -1.0
+
+[node name="send_msg" type="Button" parent="terminal"]
+anchor_left = 0.761
+anchor_top = 0.521
+anchor_right = 0.84
+anchor_bottom = 0.592
+margin_left = 0.254974
+margin_top = 0.0779877
+margin_right = 0.199982
+margin_bottom = 0.0559998
+text = "Send"
+
+[node name="enc_lbl" type="Label" parent="terminal"]
+anchor_left = 0.501
+anchor_top = 0.532
+anchor_right = 0.741
+anchor_bottom = 0.582
+margin_left = -0.0450134
+margin_top = -0.0240021
+margin_right = -90.845
+margin_bottom = -0.124008
+text = "Encrypted Message: "
+
+[node name="ch1_btn" type="Button" parent="terminal"]
+anchor_left = 0.763
+anchor_top = 0.028
+anchor_right = 0.846
+anchor_bottom = 0.099
+margin_left = 0.165009
+margin_top = 0.104
+margin_right = -0.0700073
+margin_bottom = 0.0819988
+rect_pivot_offset = Vector2( 23, 10 )
+disabled = true
+text = "Ch. 1"
+
+[node name="ch2_btn" type="Button" parent="terminal"]
+anchor_left = 0.872
+anchor_top = 0.028
+anchor_right = 0.954
+anchor_bottom = 0.099
+margin_left = -0.240021
+margin_top = 0.104
+margin_right = 0.0699463
+margin_bottom = 0.0819988
+rect_pivot_offset = Vector2( 23, 10 )
+text = "Ch. 2"
+
+[node name="dump_btn" type="Button" parent="terminal"]
+anchor_left = 0.866
+anchor_top = 0.521
+anchor_right = 0.96
+anchor_bottom = 0.592
+margin_left = 0.0299683
+margin_top = 0.0779877
+margin_right = -0.200012
+margin_bottom = 0.0559998
+text = "Dump"
+
+[node name="terminal_btn" type="Button" parent="."]
+anchor_left = 0.066
+anchor_top = 0.925
+anchor_right = 0.1
+anchor_bottom = 0.983
+margin_left = 0.416
+margin_top = -6.10352e-05
+margin_right = -0.400002
+margin_bottom = 0.199951
+
+[connection signal="pressed" from="notebook_btn" to="." method="_on_notebook_btn_pressed"]
 [connection signal="pressed" from="terminal/generate_btn" to="." method="_on_generate_btn_pressed"]
+[connection signal="pressed" from="terminal/send_btn" to="." method="_on_send_btn_pressed"]
+[connection signal="pressed" from="terminal/send_msg" to="." method="_on_send_msg_pressed"]
+[connection signal="button_down" from="terminal/ch1_btn" to="." method="_on_ch1_btn_button_down"]
+[connection signal="button_down" from="terminal/ch2_btn" to="." method="_on_ch2_btn_button_down"]
+[connection signal="pressed" from="terminal/dump_btn" to="." method="_on_dump_btn_pressed"]
+[connection signal="pressed" from="terminal_btn" to="." method="_on_terminal_btn_pressed"]
