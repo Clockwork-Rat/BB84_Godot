@@ -1,0 +1,10 @@
+
+{
+    "0" : "In this level, you will bring together all that you know to send a message to a reciever. It does not matter what this message says but you will be making sure your message is secret.",
+    "1" : "You will be able to send as many messages as you'd like, and will also be able to see what bit flip encryption looks like, lets get started!",
+    "2" : "Open your terminal and generate a key and message! The terminal is here highlighted in yellow",
+    "3" : "Since you have generated your key, you now have to send it to your partner, waiting on the other end.",
+    "4" : "You now have to compare some of your results to see if there is a eavesdropper on the channel you sent your key over. If there is an eavesdropper, do not send any information over that channel. The eavesdropper will switch between the two channels that you have available",
+    "5" : "You must regenerate you key if there is an eavesdropper, because the eavesdropper may be able to get some of your information, but also, the recipient will not get a complete message!",
+    "6" : ""
+}

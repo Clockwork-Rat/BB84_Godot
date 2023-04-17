@@ -1,9 +1,9 @@
 
 {
-    "0" : "This level will introduce you to what makes this  encryption secure! This protocol is designed to work between two people, so let's see what happens if we add an unwanted listener!",
-    "1" : "Let's call this middle person the eavesdropper. For this level, you will be able to see that the eavesdropper is present and what their choices are, but your goal is to be able to detect if the eavesdropper is present",
-    "2" : "Here is the same kind of practice that you saw in level 0, go ahead and spend some time trying to see the impact of the eavesdropper.",
-    "3" : "Once you think you have enough of a grasp as to what happens here, press the next button to test your skills. You will have to restart the level to return to the practice at this point",
-    "4" : "Look at the data and try to determine if the eavesdropper is present, you must get five in a row to pass and move onto the final level!",
+    "0" : "This level will help you see how you can use this protocol to send secure messages encryption! The protocol is designed to work between two people, so let's see what happens if we add an unwanted listener!",
+    "1" : "Let's call this middle person the \"eavesdropper\". In the beginning, you will be able to see that the eavesdropper is present and what their choices are, but your goal is to later be able to detect if an eavesdropper was present",
+    "2" : "Here is the same kind of practice that you saw in the tutorial, go ahead and spend some time trying to explore the impact of the eavesdropper.",
+    "3" : "Once you think you see what is happening here, press the next button to test your skills. You will have to restart the level to return to the practice at this point",
+    "4" : "Look at the data and try to determine if the eavesdropper is present, you must get five correct answers in a row to pass and move onto the final level!",
     "5" : "Congratulations! Now, before the final level there is a description of all of the real world equipment, this will now be available for you in the menu."
 }
