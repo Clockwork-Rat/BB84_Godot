@@ -1,8 +1,7 @@
 {
     "wt-0" : "We will start with an overview of the controls! First, all the buttons that need to be pressed will be pointed out and then you will do a guided practice run.",
     "wt-1" : "Here is the NOTEBOOK. This stores a log of everything that has happened. Click this icon to either display or hide the information saved in the notebook.",
-    "wt-2" : "This is the selection panel. By clicking the buttons in this panel, you will control how the \"sender\" sends a message and how the \"receiver\" receives it.
-",
+    "wt-2" : "This is the selection panel. By clicking the buttons in this panel, you will control how the \"sender\" sends a message and how the \"receiver\" receives it.",
     "wt-3" : "In this area you will choose a color for the message the \"sender\" sends. You are able to choose either RED or BLUE",
     "wt-4" : "In this area you will choose a number for the message the \"sender\" sends. After you have chosen both number and color, the sender's part has been completed",
     "wt-5" : "In this area you will choose a color for the \"receiver\", you have the same options as before for the \"sender\": blue and red",
