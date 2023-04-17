@@ -12,7 +12,7 @@ onready var key_length_text = $interface/key_length_panel/key_length_number
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	set_security(true)
-	key_length_panel.disabled = true
+	key_length_panel.hide()
 	compare_btn.disabled = true
 
 
@@ -44,6 +44,7 @@ func _on_generate_btn_pressed():
 	generate_btn.disabled = true
 	compare_btn.disabled = false
 	total_entries = 0
+	key_length_panel.show()
 	full_key = ""
 	
 func _on_confirm_btn_pressed():

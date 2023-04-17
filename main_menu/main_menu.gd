@@ -69,3 +69,7 @@ func _on_btn_lvl_2_pressed():
 
 func _on_btn_lvl_3_pressed():
 	get_tree().change_scene("res://lvl_3/lvl_3.tscn")
+
+
+func _on_btn_lvl_4_pressed():
+	get_tree().change_scene("res://lvl_3_models/lvl_3.tscn")
