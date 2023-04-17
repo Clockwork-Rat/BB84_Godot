@@ -68,4 +68,4 @@ func _on_btn_lvl_2_pressed():
 
 
 func _on_btn_lvl_3_pressed():
-	pass # Replace with function body.
+	get_tree().change_scene("res://lvl_3/lvl_3.tscn")
