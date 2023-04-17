@@ -8,6 +8,7 @@ onready var key_length_panel = $interface/key_length_panel
 onready var compare_btn = $interface/comp_btn
 onready var generate_btn = $interface/generate_btn
 onready var key_length_text = $interface/key_length_panel/key_length_number
+onready var key_label = $interface/key_lbl
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -30,11 +31,13 @@ func _process(delta):
 		gen_time += delta
 		entries += 1
 		total_entries += 1
-	if gen_time >= 3.0:
+	#if gen_time >= 3.0:
+	if total_entries >= key_length:
 		gen = false
 		gen_time = 0.0
 		entries = 0
 		key_text.text = full_key
+		total_entries = 0
 	if entries >= 100:
 		key_text.text = ""
 		entries = 0
@@ -52,6 +55,7 @@ func _on_confirm_btn_pressed():
 		if int(key_length_text.text):
 			key_length = int(key_length_text.text)
 			gen = true
+			key_length_panel.hide()
 
 
 func rand_entry():
@@ -72,12 +76,15 @@ func rand_entry():
 	return ret
 
 func _on_secure_low_btn_pressed():
+	secure(5)
 	pass # Replace with function body.
 
 func _on_secure_norm_btn_pressed():
+	secure(20)
 	pass # Replace with function body.
 
 func _on_secure_high_btn_pressed():
+	secure(50)
 	pass # Replace with function body.
 	
 func set_security(b: bool):
@@ -87,10 +94,21 @@ func set_security(b: bool):
 
 func _on_comp_btn_pressed():
 	key_text.text = comp_key()
+	compare_btn.disabled = true
+	set_security(false)
+	
+func secure(percent: int):
+	var scale = float(percent) / 100.0
+	pass
 	
 func comp_key():
 	var ret = ""
-	for i in range(300):
+	randomize()
+	var percent = rand_range(40, 61)
+	percent = percent / 100.0
+	key_length = int(key_length * percent)
+	key_label.text = "Key: " + String(key_length)
+	for i in range(key_length):
 		randomize()
 		ret += String(int(rand_range(0, 99)) % 2)
 	return ret
