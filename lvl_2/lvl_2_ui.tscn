@@ -1,8 +1,8 @@
 [gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://lvl_2/lvl_2_ui.gd" type="Script" id=1]
-[ext_resource path="res://lvl_0/scene_assets/ui_green/ui_green_theme.tres" type="Theme" id=2]
-[ext_resource path="res://lvl_0/scene_assets/ui_blue/ui_blue_theme.tres" type="Theme" id=3]
+[ext_resource path="res://ui_assets/rect.png" type="Texture" id=2]
+[ext_resource path="res://ui_assets/diag.png" type="Texture" id=3]
 [ext_resource path="res://lvl_0/scene_assets/notbook_icon.png" type="Texture" id=4]
 
 [node name="Control" type="Control"]
@@ -37,7 +37,6 @@ margin_bottom = 0.0199966
 text = "Next"
 
 [node name="practice_panel" type="Panel" parent="."]
-visible = false
 anchor_left = 0.248
 anchor_top = 0.463
 anchor_right = 0.954
@@ -51,12 +50,13 @@ anchor_left = 0.046
 anchor_top = 0.323
 anchor_right = 0.046
 anchor_bottom = 0.323
-margin_left = 0.742004
-margin_top = -0.207001
-margin_right = 46.742
-margin_bottom = 44.793
+margin_left = 107.742
+margin_top = 3.793
+margin_right = 183.742
+margin_bottom = 79.793
+rect_scale = Vector2( 0.6, 0.6 )
 rect_pivot_offset = Vector2( -269.292, -10.217 )
-theme = ExtResource( 3 )
+icon = ExtResource( 2 )
 
 [node name="send_red" type="Button" parent="practice_panel"]
 anchor_left = 0.13
@@ -65,9 +65,10 @@ anchor_right = 0.13
 anchor_bottom = 0.321
 margin_left = 0.00999451
 margin_top = 0.0109978
-margin_right = 46.01
-margin_bottom = 45.011
-theme = ExtResource( 2 )
+margin_right = 76.01
+margin_bottom = 76.011
+rect_scale = Vector2( 0.6, 0.6 )
+icon = ExtResource( 3 )
 
 [node name="eav_blue" type="Button" parent="practice_panel"]
 anchor_left = 0.441
@@ -76,9 +77,10 @@ anchor_right = 0.441
 anchor_bottom = 0.321
 margin_left = 0.156982
 margin_top = 0.0109978
-margin_right = 46.157
-margin_bottom = 45.011
-theme = ExtResource( 3 )
+margin_right = 76.157
+margin_bottom = 76.011
+rect_scale = Vector2( 0.6, 0.6 )
+icon = ExtResource( 2 )
 
 [node name="eav_red" type="Button" parent="practice_panel"]
 anchor_left = 0.524
@@ -87,9 +89,10 @@ anchor_right = 0.524
 anchor_bottom = 0.321
 margin_left = 0.14798
 margin_top = 0.0109901
-margin_right = 46.148
-margin_bottom = 45.011
-theme = ExtResource( 2 )
+margin_right = 76.148
+margin_bottom = 76.011
+rect_scale = Vector2( 0.6, 0.6 )
+icon = ExtResource( 3 )
 
 [node name="rec_blue" type="Button" parent="practice_panel"]
 anchor_left = 0.714
@@ -98,9 +101,10 @@ anchor_right = 0.714
 anchor_bottom = 0.321
 margin_left = -0.222046
 margin_top = 0.0109901
-margin_right = 45.778
-margin_bottom = 45.011
-theme = ExtResource( 3 )
+margin_right = 75.778
+margin_bottom = 76.011
+rect_scale = Vector2( 0.6, 0.6 )
+icon = ExtResource( 2 )
 
 [node name="rec_red" type="Button" parent="practice_panel"]
 anchor_left = 0.799
@@ -109,9 +113,10 @@ anchor_right = 0.799
 anchor_bottom = 0.321
 margin_left = 0.322998
 margin_top = 0.0109978
-margin_right = 46.323
-margin_bottom = 45.011
-theme = ExtResource( 2 )
+margin_right = 76.323
+margin_bottom = 76.011
+rect_scale = Vector2( 0.6, 0.6 )
+icon = ExtResource( 3 )
 
 [node name="send_zero" type="Button" parent="practice_panel"]
 anchor_left = 0.217
@@ -240,6 +245,7 @@ margin_right = -0.112015
 margin_bottom = 0.18399
 
 [node name="dataset" type="Panel" parent="."]
+visible = false
 anchor_left = 0.413
 anchor_top = 0.235
 anchor_right = 0.598
@@ -282,6 +288,7 @@ margin_right = 0.0650024
 margin_bottom = 0.119995
 
 [node name="s_panel" type="Panel" parent="."]
+visible = false
 margin_left = 626.0
 margin_top = 219.0
 margin_right = 693.0

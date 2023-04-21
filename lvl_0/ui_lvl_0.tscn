@@ -1,14 +1,13 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://lvl_0/scene_assets/ui_lvl_0.gd" type="Script" id=1]
-[ext_resource path="res://lvl_0/scene_assets/ui_blue/ui_blue_theme.tres" type="Theme" id=2]
+[ext_resource path="res://ui_assets/rect.png" type="Texture" id=2]
 [ext_resource path="res://lvl_0/scene_assets/ui_green/ui_green_theme.tres" type="Theme" id=3]
 [ext_resource path="res://lvl_0/familiarize_panel.gd" type="Script" id=4]
 [ext_resource path="res://lvl_0/lvl_0_quiz_panel.gd" type="Script" id=5]
-[ext_resource path="res://lvl_0/scene_assets/blue_sprite.png" type="Texture" id=6]
-[ext_resource path="res://lvl_0/scene_assets/green_sprite.png" type="Texture" id=7]
 [ext_resource path="res://lvl_0/scene_assets/notbook_icon.png" type="Texture" id=8]
 [ext_resource path="res://ui_assets/speaker.png" type="Texture" id=9]
+[ext_resource path="res://ui_assets/diag.png" type="Texture" id=10]
 
 [node name="Control" type="Control"]
 anchor_right = 1.0
@@ -103,6 +102,7 @@ margin_right = -0.16803
 theme = ExtResource( 3 )
 
 [node name="familiarize_panel" type="Panel" parent="."]
+visible = false
 anchor_left = 0.25
 anchor_top = 0.275
 anchor_right = 0.75
@@ -178,9 +178,10 @@ anchor_right = 0.145
 anchor_bottom = 0.663
 margin_left = -0.136002
 margin_top = 3.511
-margin_right = -0.240005
-margin_bottom = 3.583
-theme = ExtResource( 2 )
+margin_right = 28.76
+margin_bottom = 28.103
+rect_scale = Vector2( 0.7, 0.7 )
+icon = ExtResource( 2 )
 
 [node name="send_green" type="Button" parent="familiarize_panel"]
 anchor_left = 0.178
@@ -189,9 +190,10 @@ anchor_right = 0.27
 anchor_bottom = 0.673
 margin_left = -0.136002
 margin_top = 4.511
-margin_right = -0.240005
-margin_bottom = 3.543
-theme = ExtResource( 3 )
+margin_right = 28.76
+margin_bottom = 27.913
+rect_scale = Vector2( 0.7, 0.7 )
+icon = ExtResource( 10 )
 
 [node name="send_zero" type="Button" parent="familiarize_panel"]
 anchor_left = 0.316
@@ -222,9 +224,10 @@ anchor_right = 0.719
 anchor_bottom = 0.693
 margin_left = -0.0240173
 margin_top = -0.0589981
-margin_right = -0.128052
-margin_bottom = 0.0130005
-theme = ExtResource( 2 )
+margin_right = 28.872
+margin_bottom = 24.533
+rect_scale = Vector2( 0.7, 0.7 )
+icon = ExtResource( 2 )
 
 [node name="rec_green" type="Button" parent="familiarize_panel"]
 anchor_left = 0.752
@@ -233,9 +236,10 @@ anchor_right = 0.844
 anchor_bottom = 0.694
 margin_left = -0.0239258
 margin_top = -0.059
-margin_right = -0.127899
-margin_bottom = 0.0439911
-theme = ExtResource( 3 )
+margin_right = 28.8721
+margin_bottom = 24.414
+rect_scale = Vector2( 0.7, 0.7 )
+icon = ExtResource( 10 )
 
 [node name="reset_btn" type="Button" parent="familiarize_panel"]
 anchor_left = 0.434
@@ -283,7 +287,6 @@ align = 1
 valign = 1
 
 [node name="quiz_panel" type="Panel" parent="."]
-visible = false
 anchor_left = 0.25
 anchor_top = 0.275
 anchor_right = 0.75
@@ -328,12 +331,12 @@ text = "0/1"
 [node name="send_color" type="Sprite" parent="quiz_panel"]
 position = Vector2( 54, 58 )
 scale = Vector2( 1.3125, 1.25 )
-texture = ExtResource( 6 )
+texture = ExtResource( 2 )
 
 [node name="rec_color" type="Sprite" parent="quiz_panel"]
 position = Vector2( 173, 58 )
 scale = Vector2( 1.25, 1.25 )
-texture = ExtResource( 7 )
+texture = ExtResource( 10 )
 
 [node name="send_num" type="Label" parent="quiz_panel"]
 anchor_left = 0.195
@@ -348,6 +351,7 @@ align = 1
 valign = 1
 
 [node name="notebook_panel" type="Panel" parent="."]
+visible = false
 anchor_left = 0.015
 anchor_top = 0.195
 anchor_right = 0.255

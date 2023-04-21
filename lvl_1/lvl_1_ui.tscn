@@ -1,10 +1,9 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://lvl_1/lvl_1_ui.gd" type="Script" id=1]
-[ext_resource path="res://lvl_0/scene_assets/ui_blue/ui_blue_theme.tres" type="Theme" id=2]
-[ext_resource path="res://lvl_0/scene_assets/ui_green/ui_green_theme.tres" type="Theme" id=3]
+[ext_resource path="res://ui_assets/diag.png" type="Texture" id=2]
 [ext_resource path="res://lvl_0/scene_assets/notbook_icon.png" type="Texture" id=4]
-[ext_resource path="res://lvl_0/scene_assets/blue_sprite.png" type="Texture" id=5]
+[ext_resource path="res://ui_assets/rect.png" type="Texture" id=5]
 
 [node name="Control" type="Control"]
 anchor_right = 1.0
@@ -49,7 +48,6 @@ margin_bottom = 0.0199966
 text = "Next"
 
 [node name="select_panel" type="Panel" parent="."]
-visible = false
 anchor_left = 0.318
 anchor_top = 0.337
 anchor_right = 0.683
@@ -63,7 +61,7 @@ margin_bottom = 0.199982
 anchor_right = 1.0
 anchor_bottom = 0.375
 margin_bottom = -6.0
-text = "Select your color as the receiver!"
+text = "Select your basis as the receiver!"
 align = 1
 valign = 1
 
@@ -74,9 +72,10 @@ anchor_right = 0.413
 anchor_bottom = 0.864
 margin_left = -0.0830078
 margin_top = 0.00799942
-margin_right = -0.0490112
-margin_bottom = -0.0320053
-theme = ExtResource( 2 )
+margin_right = 22.951
+margin_bottom = 24.968
+rect_scale = Vector2( 0.7, 0.7 )
+icon = ExtResource( 5 )
 
 [node name="green_button" type="Button" parent="select_panel"]
 anchor_left = 0.571
@@ -85,9 +84,10 @@ anchor_right = 0.713
 anchor_bottom = 0.864
 margin_left = 0.016983
 margin_top = 0.00799942
-margin_right = 0.0509644
-margin_bottom = -0.0320053
-theme = ExtResource( 3 )
+margin_right = 23.051
+margin_bottom = 24.968
+rect_scale = Vector2( 0.7, 0.7 )
+icon = ExtResource( 2 )
 
 [node name="select_number" type="Label" parent="select_panel"]
 anchor_left = 0.807
@@ -103,6 +103,7 @@ align = 1
 valign = 1
 
 [node name="keep_reject" type="Panel" parent="."]
+visible = false
 anchor_left = 0.306
 anchor_top = 0.337
 anchor_right = 0.683
@@ -114,12 +115,12 @@ margin_bottom = 0.199982
 
 [node name="send_color" type="Sprite" parent="keep_reject"]
 position = Vector2( 70, 43 )
-scale = Vector2( 1.46875, 1.46875 )
+scale = Vector2( 0.8, 0.8 )
 texture = ExtResource( 5 )
 
 [node name="rec_color" type="Sprite" parent="keep_reject"]
 position = Vector2( 145, 43 )
-scale = Vector2( 1.46875, 1.46875 )
+scale = Vector2( 0.8, 0.8 )
 texture = ExtResource( 5 )
 
 [node name="keep_btn" type="Button" parent="keep_reject"]
@@ -214,6 +215,7 @@ margin_right = -0.112015
 margin_bottom = 0.18399
 
 [node name="keypad_panel" type="Panel" parent="."]
+visible = false
 anchor_left = 0.432
 anchor_top = 0.363
 anchor_right = 0.581

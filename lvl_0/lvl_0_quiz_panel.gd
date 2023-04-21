@@ -1,7 +1,7 @@
 extends Panel
 
-var blue_sprite = preload("res://lvl_0/scene_assets/blue_sprite.png")
-var green_sprite = preload("res://lvl_0/scene_assets/green_sprite.png")
+var blue_sprite = preload("res://ui_assets/rect.png")#preload("res://lvl_0/scene_assets/blue_sprite.png")
+var green_sprite = preload("res://ui_assets/diag.png")#preload("res://lvl_0/scene_assets/green_sprite.png")
 
 onready var send_color = $send_color
 onready var rec_color = $rec_color

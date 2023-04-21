@@ -198,9 +198,79 @@ margin_bottom = 0.0169964
 text = "Key Length:"
 align = 1
 
+[node name="msg" type="TextEdit" parent="interface"]
+anchor_left = 0.231
+anchor_top = 0.174
+anchor_right = 0.974
+anchor_bottom = 0.424
+margin_left = -0.192986
+margin_top = -0.111996
+margin_right = 0.0780334
+margin_bottom = -0.111992
+
+[node name="msg_lbl" type="Label" parent="interface"]
+margin_left = 117.0
+margin_top = 35.0
+margin_right = 177.0
+margin_bottom = 49.0
+text = "Message:"
+
+[node name="security_lbl" type="Label" parent="interface"]
+margin_left = 118.0
+margin_top = 8.00001
+margin_right = 158.0
+margin_bottom = 22.0
+text = "Security:"
+
+[node name="security" type="Label" parent="interface"]
+margin_left = 178.0
+margin_top = 8.00001
+margin_right = 218.0
+margin_bottom = 22.0
+text = "Undetermined"
+
+[node name="msg_rec_lbl" type="Label" parent="interface"]
+margin_left = 119.0
+margin_top = 130.0
+margin_right = 245.0
+margin_bottom = 144.0
+text = "Received Message: "
+
+[node name="rec_msg" type="RichTextLabel" parent="interface"]
+margin_left = 121.0
+margin_top = 150.0
+margin_right = 487.0
+margin_bottom = 239.0
+
+[node name="message_length" type="Label" parent="interface"]
+margin_left = 181.0
+margin_top = 35.0
+margin_right = 221.0
+margin_bottom = 49.0
+text = "N/A"
+
+[node name="send_btn" type="Button" parent="interface"]
+margin_left = 387.0
+margin_top = 126.0
+margin_right = 430.0
+margin_bottom = 146.0
+disabled = true
+text = "Send"
+
+[node name="drop_button" type="Button" parent="interface"]
+margin_left = 436.0
+margin_top = 126.0
+margin_right = 479.0
+margin_bottom = 146.0
+disabled = true
+text = "Drop"
+
 [connection signal="pressed" from="interface/comp_btn" to="." method="_on_comp_btn_pressed"]
 [connection signal="pressed" from="interface/generate_btn" to="." method="_on_generate_btn_pressed"]
 [connection signal="pressed" from="interface/secure_low_btn" to="." method="_on_secure_low_btn_pressed"]
 [connection signal="pressed" from="interface/secure_norm_btn" to="." method="_on_secure_norm_btn_pressed"]
 [connection signal="pressed" from="interface/secure_high_btn" to="." method="_on_secure_high_btn_pressed"]
 [connection signal="pressed" from="interface/key_length_panel/confirm_btn" to="." method="_on_confirm_btn_pressed"]
+[connection signal="text_changed" from="interface/msg" to="." method="_on_msg_text_changed"]
+[connection signal="pressed" from="interface/send_btn" to="." method="_on_send_btn_pressed"]
+[connection signal="pressed" from="interface/drop_button" to="." method="_on_drop_button_pressed"]

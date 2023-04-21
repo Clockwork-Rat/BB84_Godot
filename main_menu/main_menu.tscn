@@ -72,13 +72,13 @@ text = "Level 3"
 
 [node name="btn_lvl_4" type="Button" parent="."]
 anchor_left = 0.033
-anchor_top = 0.612
+anchor_top = 0.608
 anchor_right = 0.236
-anchor_bottom = 0.682
+anchor_bottom = 0.678
 margin_left = 0.208
-margin_top = -0.200043
-margin_right = 0.335968
-margin_bottom = -0.200012
+margin_top = 0.199982
+margin_right = 0.335953
+margin_bottom = 0.200012
 theme = ExtResource( 4 )
 text = "Models"
 

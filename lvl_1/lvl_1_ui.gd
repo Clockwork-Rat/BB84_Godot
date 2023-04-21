@@ -21,8 +21,8 @@ onready var keypad_zero = $keypad_panel/in_zero_btn
 onready var keypad_one = $keypad_panel/in_one_btn
 onready var entry_num = $keypad_panel/entry_num
 
-onready var blue_sprite  = preload("res://lvl_0/scene_assets/blue_sprite.png")
-onready var green_sprite = preload("res://lvl_0/scene_assets/green_sprite.png")
+onready var blue_sprite  = preload("res://ui_assets/rect.png")#preload("res://lvl_0/scene_assets/blue_sprite.png")
+onready var green_sprite = preload("res://ui_assets/diag.png")#preload("res://lvl_0/scene_assets/green_sprite.png")
 onready var red_theme = preload("res://lvl_1/scene_assets/button_red.tres")
 onready var green_theme = preload("res://lvl_1/scene_assets/button_green.tres")
 
